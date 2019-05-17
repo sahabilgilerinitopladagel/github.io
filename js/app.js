@@ -19,22 +19,31 @@
 
      window.location="main.html";  
    }).catch(function(error) {
-     alert("basarısız");
+     swal({
+                   title: "İşlem Sonucu",
+                   text: "Şifre yada kullanıcı adını kontrol et",
+                   type: "error",
+                   confirmButtonText:"Tekrar Dene",
+               });
   // An error happened.
 });
  }
 
  function doldur(){
-  var user = firebase.auth().currentUser;
-
-if (user) {
-   document.getElementById("profilnanespan").innerHTML=user.email;
-} else {
   
- 
- return false;
+  firebase.auth().onAuthStateChanged(function(user) {
+   if (user) {
+   document.getElementById("profilnanespan").innerHTML=user.email;
+   } else {
+    break;
+      yolla();
+    }
+  });
+  
 }
- 
+function yolla(){
+   window.location="index.html";
+    
 }
 function kameradetaydoldur(){
   var t = $('#myTable').DataTable({
