@@ -35,7 +35,6 @@
    if (user) {
    document.getElementById("profilnanespan").innerHTML=user.email;
    } else {
-    break;
       yolla();
     }
   });
