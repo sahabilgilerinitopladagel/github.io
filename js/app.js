@@ -25,14 +25,16 @@
  }
 
  function doldur(){
-  firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      document.getElementById("profilnanespan").innerHTML=user.email;
-    } else {
-      window.location="main.html";
-    }
-  });
+  var user = firebase.auth().currentUser;
 
+if (user) {
+   document.getElementById("profilnanespan").innerHTML=user.email;
+} else {
+  
+ 
+ return false;
+}
+ 
 }
 function kameradetaydoldur(){
   var t = $('#myTable').DataTable({
@@ -82,7 +84,7 @@ function logout(){
     if (user) {
 
      firebase.auth().signOut().then(function() {
-      window.location="main.html";
+      window.location="index.html";
     }).catch(function(error) {
   // An error happened.
 }); 
