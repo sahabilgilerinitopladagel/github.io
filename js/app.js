@@ -61,7 +61,7 @@ function kameradetaydoldur(){
       getdata.on('value', function(snapshot) {
        snapshot.forEach(function(childSnapshot) {
         var childData = childSnapshot.val();
-
+            
           t.row.add( [
             childData.il,
             childData.ilce,
@@ -69,7 +69,9 @@ function kameradetaydoldur(){
             childData.model,
             childData.adet,
             childData.sm,
-            childData.kayit
+            childData.kayit,
+            "<div class='row' ><button class='btn btn-danger btn-circle' onclick='silcamera(this.value)'  value='"+childSnapshot.key+"'> <i class='fas fa-trash'></i> </button> <button style='margin-left: 5px' class='btn btn-success btn-circle'> <i class='fas fa-check'></i> </button></div>",
+            
             ] ).draw( false );
 
      console.log(childData.il);
@@ -84,6 +86,13 @@ function kameradetaydoldur(){
       window.location="main.html";
     }
   });	
+}
+
+
+function silcamera(key){
+  alert(key);
+   firebase.database().ref().child("cameradetay").child(key).remove();
+   kameratabloekle();
 }
 
 function logout(){
@@ -181,7 +190,7 @@ for (var i = 0; i < data.length; i++) {
 
 function kameratabloekle(){
  document.getElementById("icerik").innerHTML="";
- document.getElementById("icerik").innerHTML=" <div class='col-sm-12'> <div class='card-header py-3'> <h6 class='m-0 font-weight-bold text-primary'>Kamera Bilgileri</h6> </div> <div class='card-body'> <div class='table-responsive'> <table class='table table-striped table color-table primary-table' id='myTable'> <thead> <tr> <th>İl</th> <th>İlçe</th> <th>Marka</th> <th>Model</th> <th>Adet</th> <th>system Manager</th> <th>Kayıt Süresi</th> </tr> </thead> <tbody > </tbody> <th>İl</th> <th>İlçe</th> <th>Marka</th> <th>Model</th> <th>Adet</th> <th>system Manager</th> <th>Kayıt Süresi</th> </table> </div> </div> </div>";
+ document.getElementById("icerik").innerHTML="  <div class='col-sm-12'> <div class='card-header py-3'> <h6 class='m-0 font-weight-bold text-primary'>Kamera Bilgileri</h6> </div> <div class='card-body'> <div class='table-responsive'> <table class='table table-striped table color-table primary-table' id='myTable'> <thead> <tr> <th>İl</th> <th>İlçe</th> <th>Marka</th> <th>Model</th> <th>Adet</th> <th>system Manager</th> <th>Kayıt Süresi</th> <th></th> </tr> </thead> <tbody > </tbody> <th>İl</th> <th>İlçe</th> <th>Marka</th> <th>Model</th> <th>Adet</th> <th>system Manager</th> <th>Kayıt Süresi</th> <th></th> </table> </div> </div> </div>";
 
 kameradetaydoldur();
 
