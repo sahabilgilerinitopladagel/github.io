@@ -16,8 +16,13 @@
     <link href="vendor/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
      <link href="vendor/datatables/datatables.css" rel="stylesheet" type="text/css" />
    <link href="vendor/datatables/media/css/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
-
-    
+   <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+    <script>
+      
+      if(!sessionStorage.getItem('deneme')){
+        window.location="index.html";
+      }
+    </script>
         
 
 </head>
@@ -48,7 +53,7 @@
        <li class="nav-item">
          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Ayarlar</span>
+          <span>İşlemler</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -212,86 +217,6 @@
               <div id="icerik" class="container-fluid">
               
 
-                <div class="card shadow mb-4">
-                  <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Kamera ekleme işlemleri</h6>
-                  </div>
-                  <div class="card-body">
-                    <form id="formadd">
-                      <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <label for="il">İl</label>
-                          <select id="il" class="form-control" onchange="ilcedoldur(this.value)">
-                            <option disabled selected value>Bir il Seçiniz</option>
-                          </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="ilce">İlçe</label>
-                          <select id="ilce" class="form-control">
-                            <option disabled selected value>Bir ilçe Seçiniz</option>
-                            
-                          </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="kameramarka">Kamera Marka</label>
-                          <input type="text" class="form-control" id="kameramarka" placeholder="Kamera Marka giriniz">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="kameramodeli">Kamera Modeli</label>
-                          <input type="text" class="form-control" id="kameramodel" placeholder="Kamera Model giriniz">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="mc">Tip</label>
-                          <select id="tip" class="form-control">
-                           <option disabled selected value>Kamera tipini seçiniz</option>
-                            <option value="Sabit" >Sabit</option>
-                            <option value="Hareketli">Hareketli</option>
-                            <option value="Lazer">Lazer</option>
-                             <option value="Termal">Termal</option>
-                          </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label>Adet </label>
-                           <input type="text" class="form-control" id="kameraadet" placeholder="Kamera adetini giriniz!!!">
-                        </div>
-                        
-                        <div class="form-group col-md-6">
-                        <label for="systemmanagers">Sistem manager</label>
-                        <input type="text" class="form-control" id="systemmanagers" placeholder="Aselsan NVR'a kayıt yapıyorsa Aselsan yazınız!! ">
-                      </div>
-                      <div class="form-group col-md-6">
-                        <label for="systemmanagers">Kayıt Süresi</label>
-                        <input type="text" class="form-control" id="kayit" placeholder="Mevcut NVR'a kayıt süresini yazınız!! ">
-                      </div>
-                      </div>
-                      
-                      
-                      <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <label for="mc">Multicast Desteği</label>
-                          <select id="mc" class="form-control">
-                            <option value="Var" selected>Var</option>
-                            <option value="Yok">Yok</option>
-                          </select>
-                        </div>
-                        
-                        <div class="form-group col-md-6">
-                          <label for="aciklama">Açıklama</label>
-                          <input type="text" class="form-control" id="aciklama">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="form-check">
-                          <input class="form-check-input" value="Aselsan" type="checkbox" id="aselsanmi">
-                          <label class="form-check-label" for="aselsanmi">
-                            Aselsan NVR'a kayıt yapıyor mu?
-                          </label>
-                        </div>
-                      </div>
-                      <button type="button" class="btn btn-primary" onclick="kamerabilgikaydet()">Kaydet</button>
-                    </form>
-                  </div>
-                </div>
 
               </div>
               <!-- /.container-fluid -->
@@ -303,7 +228,7 @@
             <footer class="sticky-footer bg-white">
               <div class="container my-auto">
                 <div class="copyright text-center my- auto">
-                  <span>Copyright © Your Website 2019</span>
+                  <span>Powered By © ABY</span>
                 </div>
               </div>
             </footer>
@@ -325,7 +250,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Oturum Sonlandırma</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
                 </button>

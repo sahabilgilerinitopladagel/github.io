@@ -1,5 +1,4 @@
-
-  // Your web app's Firebase configuration
+ // Your web app's Firebase configuration
   var firebaseConfig = {
   	apiKey: "AIzaSyClzSJ_f9pstOLeQmSimKJkcCZ7L6gkpmo",
   	authDomain: "envarter-fe4bc.firebaseapp.com",
@@ -11,12 +10,18 @@
   firebase.initializeApp(firebaseConfig);
   var email;
   var password;
-
-  function girisyap() {
+  function girisyap(value) {
    email=document.getElementById("email").value;
    password=document.getElementById("password").value;
    firebase.auth().signInWithEmailAndPassword(email, password).then(function() {
+    if(value){
 
+      localStorage.setItem("checkbox",email );
+    }
+    else{
+      localStorage.removeItem("checkbox");
+    }
+    sessionStorage.setItem("deneme", "deneme"); 
      window.location="main.html";  
    }).catch(function(error) {
      swal({
@@ -101,6 +106,8 @@ function logout(){
     if (user) {
 
      firebase.auth().signOut().then(function() {
+      sessionStorage.removeItem("deneme");
+      sessionStorage.clear();
       window.location="index.html";
     }).catch(function(error) {
   // An error happened.
@@ -201,7 +208,7 @@ $('.buttons-excel').addClass('btn btn-primary m-r-10');
 function kameraekle(){
 
 document.getElementById("icerik").innerHTML="";
- document.getElementById("icerik").innerHTML="<!-- Page Heading --> <div class='card shadow mb-4'> <div class='card-header py-3'> <h6 class='m-0 font-weight-bold text-primary'>Kamera ekleme işlemleri</h6> </div> <div class='card-body'> <form id='formadd'> <div class='form-row'> <div class='form-group col-md-6'> <label for='il'>İl</label> <select id='il' class='form-control' onchange='ilcedoldur(this.value)'> <option disabled selected value>Bir il Seçiniz</option> </select> </div> <div class='form-group col-md-6'> <label for='ilce'>İlçe</label> <select id='ilce' class='form-control'> <option disabled selected value>Bir ilçe Seçiniz</option> </select> </div> <div class='form-group col-md-6'> <label for='kameramarka'>Kamera Marka</label> <input type='text' class='form-control' id='kameramarka' placeholder='Kamera Marka giriniz'> </div> <div class='form-group col-md-6'> <label for='kameramodeli'>Kamera Modeli</label> <input type='text' class='form-control' id='kameramodel' placeholder='Kamera Model giriniz'> </div> <div class='form-group col-md-6'> <label for='mc'>Tip</label> <select id='tip' class='form-control'> <option disabled selected value>Kamera tipini seçiniz</option> <option value='Sabit'>Sabit</option> <option value='Hareketli'>Hareketli</option> <option value='Lazer'>Lazer</option> <option value='Termal'>Termal</option> </select> </div> <div class='form-group col-md-6'> <label>Adet </label> <input type='text' class='form-control' id='kameraadet' placeholder='Kamera adetini giriniz!!!'> </div> <div class='form-group col-md-6'> <label for='systemmanagers'>Sistem manager</label> <input type='text' class='form-control' id='systemmanagers' placeholder='Aselsan NVRa kayıt yapıyorsa Aselsan yazınız!! '> </div><div class='form-group col-md-6'> <label for='systemmanagers'>Kayıt Süresi</label> <input type='text' class='form-control' id='kayit' placeholder='Mevcut NVRa kayıt süresini yazınız!! '> </div> </div> <div class='form-row'> <div class='form-group col-md-6'> <label for='mc'>Multicast Desteği</label> <select id='mc' class='form-control'> <option value='Var' selected>Var</option> <option value='Yok'>Yok</option> </select> </div> <div class='form-group col-md-6'> <label for='aciklama'>Açıklama</label> <input type='text' class='form-control' id='aciklama'> </div> </div> <div class='form-group'> <div class='form-check'> <input class='form-check-input' value='Aselsan' type='checkbox' id='aselsanmi'> <label class='form-check-label' for='aselsanmi'> Aselsan NVR'a kayıt yapıyor mu? </label> </div> </div> <button type='button' class='btn btn-primary' onclick='kamerabilgikaydet()'>Kaydet</button> </form> </div> </div>";
+ document.getElementById("icerik").innerHTML="<!-- Page Heading --> <div class='card shadow mb-4'><div class='card-header py-3'> <h6 class='m-0 font-weight-bold text-primary'>Kamera ekleme işlemleri</h6> </div> <div class='card-body'> <form id='formadd'> <div class='form-row'> <div class='form-group col-md-6'> <label for='il'>İl</label> <select id='il' class='form-control' onchange='ilcedoldur(this.value)'> <option disabled selected value>Bir il Seçiniz</option> </select> </div> <div class='form-group col-md-6'> <label for='ilce'>İlçe</label> <select id='ilce' class='form-control'> <option disabled selected value>Bir ilçe Seçiniz</option> </select> </div> <div class='form-group col-md-6'> <label for='kameramarka'>Kamera Marka</label> <input type='text' class='form-control' id='kameramarka' placeholder='Kamera Marka giriniz'> </div> <div class='form-group col-md-6'> <label for='kameramodeli'>Kamera Modeli</label> <input type='text' class='form-control' id='kameramodel' placeholder='Kamera Model giriniz'> </div> <div class='form-group col-md-6'> <label for='mc'>Tip</label> <select id='tip' class='form-control'> <option disabled selected value>Kamera tipini seçiniz</option> <option value='Sabit'>Sabit</option> <option value='Hareketli'>Hareketli</option> <option value='Lazer'>Lazer</option> <option value='Termal'>Termal</option> </select> </div> <div class='form-group col-md-6'> <label>Adet </label> <input type='number' class='form-control' id='kameraadet' placeholder='Kamera adetini giriniz!!!'> </div> <div class='form-group col-md-6'> <label for='systemmanagers'>Sistem manager</label> <input type='text' class='form-control' id='systemmanagers' placeholder='Aselsan NVRa kayıt yapıyorsa Aselsan yazınız!! '> </div><div class='form-group col-md-6'> <label for='systemmanagers'>Kayıt Süresi</label> <input type='text' class='form-control' id='kayit' placeholder='Mevcut NVRa kayıt süresini yazınız!! '> </div> </div> <div class='form-row'> <div class='form-group col-md-6'> <label for='mc'>Multicast Desteği</label> <select id='mc' class='form-control'> <option value='Var' selected>Var</option> <option value='Yok'>Yok</option> </select> </div> <div class='form-group col-md-6'> <label for='aciklama'>Açıklama</label> <input type='text' class='form-control' id='aciklama'> </div> </div> <div class='form-group'> <div class='form-check'> <input class='form-check-input' value='Aselsan' type='checkbox' id='aselsanmi'> <label class='form-check-label' for='aselsanmi'> Aselsan NVR'a kayıt yapıyor mu? </label> </div> </div> <button type='button' class='btn btn-primary' onclick='kamerabilgikaydet()'>Kaydet</button> </form> </div> </div>";
 
  var il = document.getElementById("il"); 
   var option;
