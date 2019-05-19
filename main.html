@@ -1,10 +1,10 @@
 <html lang="tr"><head>
-<meta charset="utf-8">
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
- 
+
   <title>IT</title>
 
   <!-- Custom fonts for this template-->
@@ -13,17 +13,17 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="vendor/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
-     <link href="vendor/datatables/datatables.css" rel="stylesheet" type="text/css" />
-   <link href="vendor/datatables/media/css/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
-   <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
-    <script>
-      
-      if(!sessionStorage.getItem('deneme')){
-        window.location="index.html";
-      }
-    </script>
-        
+  <link href="vendor/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+  <link href="vendor/datatables/datatables.css" rel="stylesheet" type="text/css" />
+  <link href="vendor/datatables/media/css/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+  <script>
+
+    if(!sessionStorage.getItem('deneme')){
+      window.location="index.html";
+    }
+  </script>
+
 
 </head>
 
@@ -49,7 +49,7 @@
 
        <!-- Nav Item - Dashboard -->
 
-     <!-- Nav Item - Pages Collapse Menu -->
+       <!-- Nav Item - Pages Collapse Menu -->
        <li class="nav-item">
          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
@@ -72,6 +72,7 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar" style="">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" onclick="kameratabloekle()">Kamera Detay Tablosu</a>
+             <a class="collapse-item" onclick="kablosuztabloekle()">Kablosuz Detay Tablosu</a>
           </div>
         </div>
       </li>
@@ -172,7 +173,7 @@
               <!-- Dropdown - Messages -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">
-                 
+
                 </h6>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
@@ -215,7 +216,7 @@
 
               <!-- Begin Page Content -->
               <div id="icerik" class="container-fluid">
-              
+
 
 
               </div>
@@ -257,53 +258,184 @@
               </div>
               <div class="modal-body">Oturumunuzu Sonlandırmak istediğinizden emin misiniz?</div>
               <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal" onclick="deneme">iptal</button>
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">iptal</button>
                 <button class="btn btn-danger" onclick="logout()">Çıkış Yap</button>
               </div>
             </div>
           </div>
         </div>
 
+        <!--end Logout Modal-->
+        <!-- kamera güncelle modal-->
+        <div class="modal fade" id="cameraupdateModal" tabindex="-1" role="dialog" aria-labelledby="cameraupdateModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="cameraupdateModalLabel">Kamera Bilgilerini Güncelle</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+               <form id="formadd"> 
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="ilupdate">İl</label>
+                    <select id="ilupdate" class="form-control" onchange="ilcedoldur(this.value,'ilceupdate')">
+                      <option disabled selected value>Bir il Seçiniz</option>
+                    </select> 
+                  </div>
+                  <div class="form-group col-md-6"> 
+                    <label for="ilceupdate">İlçe</label> 
+                    <select id="ilceupdate" class="form-control"> 
+                      <option disabled selected value>Bir ilçe Seçiniz</option> 
+                    </select> </div> <div class="form-group col-md-6"> 
+                      <label for="kameramarkaupdate">Kamera Marka</label> 
+                      <input type="text" class="form-control" id="kameramarkaupdate" placeholder="Kamera Marka giriniz"> 
+                    </div> 
+                    <div class="form-group col-md-6"> 
+                      <label for="kameramodeliupdate">Kamera Modeli</label> 
+                      <input type="text" class="form-control" id="kameramodelupdate" placeholder="Kamera Model giriniz"> 
+                    </div> 
+                    <div class="form-group col-md-6"> <label for="mc">Tip</label>
+                     <select id="tipupdate" class="form-control"> 
+                      <option disabled selected value>Kamera tipini seçiniz</option>
+                      <option value="Sabit">Sabit</option> 
+                      <option value="Hareketli">Hareketli</option> 
+                      <option value="Lazer">Lazer</option>
+                      <option value="Termal">Termal</option> 
+                    </select> 
+                  </div>
+                   <div class="form-group col-md-6"> 
+                     <label>Adet </label> 
+                     <input type="number" class="form-control" id="kameraadetupdate" placeholder="Kamera adetini giriniz!!!"> 
+                   </div> <div class="form-group col-md-6"> 
+                     <label for="systemmanagersupdate">Sistem manager</label> 
+                     <input type="text" class="form-control" id="systemmanagersupdate" placeholder="Aselsan NVRa kayıt yapıyorsa Aselsan yazınız!! "> 
+                   </div><div class="form-group col-md-6"> 
+                     <label for="kayitupdate">Kayıt Süresi</label> 
+                     <input type="text" class="form-control" id="kayitupdate" placeholder="Mevcut NVRa kayıt süresini yazınız!! "> 
+                   </div> 
+                 </div> 
+                </form>
 
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal" >iptal</button>
+                    <button class="btn btn-success" data-dismiss="modal" onclick="kamerabilgiupdate()">Güncelle</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end kamera güncelle modal-->
 
-        <!-- Core plugin JavaScript-->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="js/sb-admin-2.min.js"></script>
+
+             <!-- kablosuz güncelle modal-->
+        <div class="modal fade" id="kablosuzupdateModal" tabindex="-1" role="dialog" aria-labelledby="kablosuzupdateModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="kablosuzupdateModalLabel">Kablosuz Bilgilerini Güncelle</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+               <form id="formadd"> 
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="kablosuzilupdate">İl</label>
+                    <select id="kablosuzilupdate" class="form-control" onchange="ilcedoldur(this.value,'kablosuzilceupdate')">
+                      <option disabled selected value>Bir il Seçiniz</option>
+                    </select> 
+                  </div>
+                  <div class="form-group col-md-6"> 
+                    <label for="kablosuzilceupdate">İlçe</label> 
+                    <select id="kablosuzilceupdate" class="form-control"> 
+                      <option disabled selected value>Bir ilçe Seçiniz</option> 
+                    </select> </div> <div class="form-group col-md-6"> 
+                      <label for="kablosuzmarkaupdate">Kablosuz Marka</label> 
+                      <input type="text" class="form-control" id="kablosuzmarkaupdate" placeholder="Kablosuz Marka giriniz"> 
+                    </div> 
+                    <div class="form-group col-md-6"> 
+                      <label for="kablosuzmodeliupdate">Kablosuz Modeli</label> 
+                      <input type="text" class="form-control" id="kablosuzmodelupdate" placeholder="Kablosuz Model giriniz"> 
+                    </div> 
+                    <div class="form-group col-md-6"> <label for="mc">Tip</label>
+                     <select id="kablosuztipupdate" class="form-control"> 
+                      <option disabled selected value>Kablosuz tipini seçiniz</option>
+                      <option value="Baz">Baz</option> 
+                      <option value="23GHZ">23GHZ</option> 
+                      <option value="p2p">p2p</option>
+                    </select> 
+                  </div>
+                   <div class="form-group col-md-6"> 
+                     <label>Adet </label> 
+                     <input type="number" class="form-control" id="kablosuzadetupdate" placeholder="Kablosuz adetini giriniz!!!"> 
+                   </div> 
+                 </div> 
+                </form>
+
+
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal" >iptal</button>
+                    <button class="btn btn-success" data-dismiss="modal" onclick="kablosuzbilgiupdate()">Güncelle</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end kablosuz güncelle modal-->
+
+
+
+
+            <!-- Bootstrap core JavaScript-->
+            <script src="vendor/jquery/jquery.min.js"></script>
+            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+            <!-- Core plugin JavaScript-->
+            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+            <!-- Custom scripts for all pages-->
+            <script src="js/sb-admin-2.min.js"></script>
             <script src="vendor/datatables/datatables.js"></script>
 
-  <script src="vendor/datatables/media/js/datatables.buttons.min.js"></script>
-    <script src="vendor/datatables/media/js/buttons.flash.min.js.js"></script>
-    <script src="vendor/datatables/media/js/jszip.min.js"></script>
-  
-    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
-        <script src="vendor/sweetalert/sweetalert.min.js"></script>
-         <script src="vendor/sweetalert/jquery.sweet-alert.custom.js"></script> 
-        <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js"></script>
+            <script src="vendor/datatables/media/js/datatables.buttons.min.js"></script>
+            <script src="vendor/datatables/media/js/buttons.flash.min.js.js"></script>
+            <script src="vendor/datatables/media/js/jszip.min.js"></script>
 
-        <script type="text/javascript" src="js/ililce.js"></script>
-        <script src="js/app.js"></script>
-     
+            <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+            <script src="vendor/sweetalert/sweetalert.min.js"></script>
+            <script src="vendor/sweetalert/jquery.sweet-alert.custom.js"></script> 
+            <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js"></script>
 
-        <script>
-         
-          var il = document.getElementById("il"); 
-           var option;
-           
-          for (var i = 0; i < data.length; i++) {
-           option = document.createElement("option");
-            option.text = data[i].il;
-            option.value== data[i].il; 
-           il.add(option);
+            <script type="text/javascript" src="js/ililce.js"></script>
+            <script src="js/app.js"></script>
+
+
+            <script>
+
+              var il = document.getElementById("il"); 
+              var option;
+
+              for (var i = 0; i < data.length; i++) {
+               option = document.createElement("option");
+               option.text = data[i].il;
+               option.value== data[i].il; 
+               try {
+                 il.add(option);
+               } catch(e) {
+              // statements
+              console.log(e);
+            }
+
           }
-                  
-         </script>
+
+        </script>
 
       </body></html>

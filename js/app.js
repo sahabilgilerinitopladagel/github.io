@@ -1,3 +1,7 @@
+ var ilce="ilce";
+ var keyupdate="";
+
+
  // Your web app's Firebase configuration
   var firebaseConfig = {
   	apiKey: "AIzaSyClzSJ_f9pstOLeQmSimKJkcCZ7L6gkpmo",
@@ -34,6 +38,8 @@
 });
  }
 
+
+
  function doldur(){
   
   firebase.auth().onAuthStateChanged(function(user) {
@@ -58,6 +64,7 @@ function kameradetaydoldur(){
         ]
      
     });
+  t.innerHTML="";
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       document.getElementById("profilnanespan").innerHTML=user.email;
@@ -75,7 +82,7 @@ function kameradetaydoldur(){
             childData.adet,
             childData.sm,
             childData.kayit,
-            "<div class='row' ><button class='btn btn-danger btn-circle' onclick='silcamera(this.value)'  value='"+childSnapshot.key+"'> <i class='fas fa-trash'></i> </button> <button style='margin-left: 5px' class='btn btn-success btn-circle'> <i class='fas fa-check'></i> </button></div>",
+            "<div class='row' ><button class='btn btn-danger btn-circle' onclick='silcamera(this.value)'  value='"+childSnapshot.key+"'> <i class='fas fa-trash'></i> </button> <button style='margin-left: 5px' class='btn btn-success btn-circle' data-toggle='modal' data-target='#cameraupdateModal' onclick='updatecameradoldur(this.value,this.value2)' value='"+[childSnapshot.key,childData.il,childData.ilce,childData.marka,childData.model,childData.sm,childData.kayit,childData.adet,childData.tip]+"'> <i class='fas fa-check'></i> </button></div>",
             
             ] ).draw( false );
 
@@ -94,10 +101,235 @@ function kameradetaydoldur(){
 }
 
 
+
+function kablosuzdetaydoldur(){
+  var t = $('#myTable').DataTable({
+     "iDisplayLength":10,
+        dom: 'Bfrtip',
+        buttons: [
+        'excel',
+        ]
+     
+    });
+  t.innerHTML="";
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      document.getElementById("profilnanespan").innerHTML=user.email;
+
+      var getdata=firebase.database().ref().child("kablosuzdetay");
+      getdata.on('value', function(snapshot) {
+       snapshot.forEach(function(childSnapshot) {
+        var childData = childSnapshot.val();
+            
+          t.row.add( [
+            childData.il,
+            childData.ilce,
+            childData.marka,
+            childData.model,
+            childData.tip,
+             childData.adet,
+            "<div class='row' ><button class='btn btn-danger btn-circle' onclick='silkablosuz(this.value)'  value='"+childSnapshot.key+"'> <i class='fas fa-trash'></i> </button> <button style='margin-left: 5px' class='btn btn-success btn-circle' data-toggle='modal' data-target='#kablosuzupdateModal' onclick='updatekablosuzdoldur(this.value)' value='"+[childSnapshot.key,childData.il,childData.ilce,childData.marka,childData.model,childData.tip,childData.adet]+"'> <i class='fas fa-check'></i> </button></div>",
+            
+            ] ).draw( false );
+
+     console.log(childData.il);
+      });
+
+
+     });
+
+
+
+    } else {
+      window.location="main.html";
+    }
+  }); 
+}
+
+
+
+function updatecameradoldur(key){
+  
+  key=key.split(",");
+  
+  var il = document.getElementById("ilupdate"); 
+              var option;
+
+              for (var i = 0; i < data.length; i++) {
+               option = document.createElement("option");
+               option.text = data[i].il;
+               option.value== data[i].il; 
+               try {
+                 il.add(option);
+               } catch(e) {
+              // statements
+              console.log(e);
+            }
+
+          }
+
+    for (var i = 0; i <81; i++) {
+
+      if(il.options[i].value===key[1]){
+        il.selectedIndex=i;
+
+        ilcedoldur(key[1],"ilceupdate");
+      }
+     
+    }
+    var ilce = document.getElementById("ilceupdate");
+
+    for (var i = 0; i <ilce.length; i++) {
+      if(ilce.options[i].value===key[2]){
+        ilce.selectedIndex=i;
+      }
+     
+    }
+   var tipupdate = document.getElementById("tipupdate");
+    for (var i = 0; i < tipupdate.length; i++) {
+
+      if(tipupdate.options[i].value===key[8]){
+        tipupdate.selectedIndex=i;
+      }
+    }
+
+   // childData.il,childData.ilce,childData.marka,childData.model,childData.sm,childData.kayit,childData.adet
+  document.getElementById("kameramarkaupdate").value=key[3];
+  document.getElementById("kameramodelupdate").value=key[4];
+ document.getElementById("kameraadetupdate").value=key[7];
+ document.getElementById("systemmanagersupdate").value=key[5];
+  document.getElementById("kayitupdate").value=key[6];
+  
+
+ keyupdate=key[0];
+
+}
+
+
+function updatekablosuzdoldur(key){
+  
+  key=key.split(",");
+  
+  var il = document.getElementById("kablosuzilupdate"); 
+              var option;
+
+              for (var i = 0; i < data.length; i++) {
+               option = document.createElement("option");
+               option.text = data[i].il;
+               option.value== data[i].il; 
+               try {
+                 il.add(option);
+               } catch(e) {
+              // statements
+              console.log(e);
+            }
+
+          }
+
+    for (var i = 0; i <81; i++) {
+
+      if(il.options[i].value===key[1]){
+        il.selectedIndex=i;
+
+        ilcedoldur(key[1],"kablosuzilceupdate");
+      }
+     
+    }
+    var ilce = document.getElementById("kablosuzilceupdate");
+
+    for (var i = 0; i <ilce.length; i++) {
+      if(ilce.options[i].value===key[2]){
+        ilce.selectedIndex=i;
+      }
+     
+    }
+   var tipupdate = document.getElementById("kablosuztipupdate");
+    for (var i = 0; i < tipupdate.length; i++) {
+
+      if(tipupdate.options[i].value===key[5]){
+        tipupdate.selectedIndex=i;
+      }
+    }
+
+   // childData.il,childData.ilce,childData.marka,childData.model,childData.sm,childData.kayit,childData.adet
+  document.getElementById("kablosuzmarkaupdate").value=key[3];
+  document.getElementById("kablosuzmodelupdate").value=key[4];
+ document.getElementById("kablosuzadetupdate").value=key[6];
+  
+  
+
+ keyupdate=key[0];
+
+}
+
+function kamerabilgiupdate(){
+   var il = document.getElementById("ilupdate").value;
+   var ilce = document.getElementById("ilceupdate").value;
+  var marka=document.getElementById("kameramarkaupdate").value;
+  var model=document.getElementById("kameramodelupdate").value;
+ var adet=document.getElementById("kameraadetupdate").value;
+ var sm=document.getElementById("systemmanagersupdate").value;
+  var kayit=document.getElementById("kayitupdate").value;
+  var tip=document.getElementById("tipupdate").value;
+
+
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+       firebase.database().ref().child("cameradetay").child(keyupdate).child("il").set(il);
+       firebase.database().ref().child("cameradetay").child(keyupdate).child("ilce").set(ilce);
+       firebase.database().ref().child("cameradetay").child(keyupdate).child("marka").set(marka);
+       firebase.database().ref().child("cameradetay").child(keyupdate).child("model").set(model);
+       firebase.database().ref().child("cameradetay").child(keyupdate).child("adet").set(adet);
+       firebase.database().ref().child("cameradetay").child(keyupdate).child("sm").set(sm);
+       firebase.database().ref().child("cameradetay").child(keyupdate).child("kayit").set(kayit);
+       firebase.database().ref().child("cameradetay").child(keyupdate).child("tip").set(tip);  
+       kameratabloekle();
+} else {
+    // No user is signed in.
+  }
+});
+
+}
+
+function kablosuzbilgiupdate(){
+   var il = document.getElementById("kablosuzilupdate").value;
+   var ilce = document.getElementById("kablosuzilceupdate").value;
+  var marka=document.getElementById("kablosuzmarkaupdate").value;
+  var model=document.getElementById("kablosuzmodelupdate").value;
+ var adet=document.getElementById("kablosuzadetupdate").value;
+  var tip=document.getElementById("kablosuztipupdate").value;
+
+
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+       firebase.database().ref().child("kablosuzdetay").child(keyupdate).child("il").set(il);
+       firebase.database().ref().child("kablosuzdetay").child(keyupdate).child("ilce").set(ilce);
+       firebase.database().ref().child("kablosuzdetay").child(keyupdate).child("marka").set(marka);
+       firebase.database().ref().child("kablosuzdetay").child(keyupdate).child("model").set(model);
+       firebase.database().ref().child("kablosuzdetay").child(keyupdate).child("adet").set(adet);
+       firebase.database().ref().child("kablosuzdetay").child(keyupdate).child("tip").set(tip);  
+       kablosuztabloekle();
+} else {
+    // No user is signed in.
+  }
+});
+
+}
+
+
 function silcamera(key){
-  alert(key);
+  if(window.confirm("Silmek İstediğinize Emin misiniz?")){
    firebase.database().ref().child("cameradetay").child(key).remove();
    kameratabloekle();
+ }
+}
+function silkablosuz(key){
+  if(window.confirm("Silmek İstediğinize Emin misiniz?")){
+   firebase.database().ref().child("kablosuzdetay").child(key).remove();
+   kablosuztabloekle();
+ }
 }
 
 function logout(){
@@ -181,7 +413,7 @@ function kamerabilgikaydet(){
 
 function kablosuzekle(value){
    document.getElementById("icerik").innerHTML="";
- document.getElementById("icerik").innerHTML="<div class='card shadow mb-4'> <div class='card-header py-3'> <h6 class='m-0 font-weight-bold text-primary'>Kablosuz Cihaz Ekle</h6> </div> <div class='card-body'> <form id='formadd'> <div class='form-row'> <div class='form-group col-md-6'> <label for='il'>İl</label> <select id='il' class='form-control' onchange='ilcedoldur(this.value)'> <option disabled selected value>Bir il Seçiniz</option> </select> </div> <div class='form-group col-md-6'> <label for='ilce'>İlçe</label> <select id='ilce' class='form-control'> <option disabled selected value>Bir ilçe Seçiniz</option> </select> </div> <div class='form-group col-md-6'> <label for='kameramarka'>Kablosuz Marka</label> <select id='kameramarka' class='form-control'> <option disabled selected value>Kablosuz Marka seçiniz</option> <option value='Radwin'>Radwin</option> <option value='Redline'>Redline</option> <option value='SAF'>SAF 23 GHZ</option> </select> </div> <div class='form-group col-md-6'> <label for='kameramodeli'>Kablosuz Modeli</label> <input type='text' class='form-control' id='kameramodel' placeholder='Kablosuz Model giriniz'> </div> <div class='form-group col-md-6'> <label for='mc'>Tip</label> <select id='tip' class='form-control'> <option disabled selected value>Kablosuz tipini seçiniz</option> <option value='Baz' selected>Baz</option> <option value='23GHZ'>23GHZ</option> <option value='p2p'>p2p</option> </select> </div> <div class='form-group col-md-6'> <label>Adet </label> <input type='text' class='form-control' id='kameraadet' placeholder='Kablosuz adetini giriniz!!!'> </div> </div> <div class='form-row'> <div class='form-group col-md-6'> <label for='aciklama'>Açıklama</label> <input type='text' class='form-control' id='aciklama'> </div> </div> <button type='button' class='btn btn-primary' onclick='kablosuzbilgikaydet()'>Kaydet</button> </form> </div> </div>";
+ document.getElementById("icerik").innerHTML="<div class='card shadow mb-4'> <div class='card-header py-3'> <h6 class='m-0 font-weight-bold text-primary'>Kablosuz Cihaz Ekle</h6> </div> <div class='card-body'> <form id='formadd'> <div class='form-row'> <div class='form-group col-md-6'> <label for='il'>İl</label> <select id='il' class='form-control' onchange='ilcedoldur(this.value,this.name)' name='ilce'> <option disabled selected value>Bir il Seçiniz</option> </select> </div> <div class='form-group col-md-6'> <label for='ilce'>İlçe</label> <select id='ilce' class='form-control'> <option disabled selected value>Bir ilçe Seçiniz</option> </select> </div> <div class='form-group col-md-6'> <label for='kameramarka'>Kablosuz Marka</label> <select id='kameramarka' class='form-control'> <option disabled selected value>Kablosuz Marka seçiniz</option> <option value='Radwin'>Radwin</option> <option value='Redline'>Redline</option> <option value='SAF'>SAF 23 GHZ</option> </select> </div> <div class='form-group col-md-6'> <label for='kameramodeli'>Kablosuz Modeli</label> <input type='text' class='form-control' id='kameramodel' placeholder='Kablosuz Model giriniz'> </div> <div class='form-group col-md-6'> <label for='mc'>Tip</label> <select id='tip' class='form-control'> <option disabled selected value>Kablosuz tipini seçiniz</option> <option value='Baz' selected>Baz</option> <option value='23GHZ'>23GHZ</option> <option value='p2p'>p2p</option> </select> </div> <div class='form-group col-md-6'> <label>Adet </label> <input type='number' class='form-control' id='kameraadet' placeholder='Kablosuz adetini giriniz!!!'> </div> </div> <div class='form-row'> <div class='form-group col-md-6'> <label for='aciklama'>Açıklama</label> <input type='text' class='form-control' id='aciklama'> </div> </div> <button type='button' class='btn btn-primary' onclick='kablosuzbilgikaydet()'>Kaydet</button> </form> </div> </div>";
 var il = document.getElementById("il");
     var option;
   
@@ -197,9 +429,19 @@ for (var i = 0; i < data.length; i++) {
 
 function kameratabloekle(){
  document.getElementById("icerik").innerHTML="";
- document.getElementById("icerik").innerHTML="  <div class='col-sm-12'> <div class='card-header py-3'> <h6 class='m-0 font-weight-bold text-primary'>Kamera Bilgileri</h6> </div> <div class='card-body'> <div class='table-responsive'> <table class='table table-striped table color-table primary-table' id='myTable'> <thead> <tr> <th>İl</th> <th>İlçe</th> <th>Marka</th> <th>Model</th> <th>Adet</th> <th>system Manager</th> <th>Kayıt Süresi</th> <th></th> </tr> </thead> <tbody > </tbody> <th>İl</th> <th>İlçe</th> <th>Marka</th> <th>Model</th> <th>Adet</th> <th>system Manager</th> <th>Kayıt Süresi</th> <th></th> </table> </div> </div> </div>";
+ document.getElementById("icerik").innerHTML="<div class='card shadow mb-4'> <div class='card-header py-3'><h6 class='m-0 font-weight-bold text-primary'>Kamera Tablosu</h6> </div>   <div class='col-sm-12'><div class='card-body'> <div class='table-responsive'> <table class='table table-striped table color-table primary-table' id='myTable'> <thead> <tr> <th>İl</th> <th>İlçe</th> <th>Marka</th> <th>Model</th> <th>Adet</th> <th>system Manager</th> <th>Kayıt Süresi</th> <th></th> </tr> </thead> <tbody > </tbody></table> </div> </div> </div></div> </div>";
 
 kameradetaydoldur();
+
+$('.buttons-excel').addClass('btn btn-primary m-r-10');
+
+}
+
+function kablosuztabloekle(){
+ document.getElementById("icerik").innerHTML="";
+ document.getElementById("icerik").innerHTML="<div class='card shadow mb-4'> <div class='card-header py-3'><h6 class='m-0 font-weight-bold text-primary'>Kamera Tablosu</h6> </div>   <div class='col-sm-12'><div class='card-body'> <div class='table-responsive'> <table class='table table-striped table color-table primary-table' id='myTable'> <thead> <tr> <th>İl</th> <th>İlçe</th> <th>Marka</th> <th>Model</th><th>Tip</th> <th>Adet</th><th></th> </tr> </thead> <tbody > </tbody></table> </div> </div> </div></div> </div>";
+
+kablosuzdetaydoldur();
 
 $('.buttons-excel').addClass('btn btn-primary m-r-10');
 
@@ -208,7 +450,7 @@ $('.buttons-excel').addClass('btn btn-primary m-r-10');
 function kameraekle(){
 
 document.getElementById("icerik").innerHTML="";
- document.getElementById("icerik").innerHTML="<!-- Page Heading --> <div class='card shadow mb-4'><div class='card-header py-3'> <h6 class='m-0 font-weight-bold text-primary'>Kamera ekleme işlemleri</h6> </div> <div class='card-body'> <form id='formadd'> <div class='form-row'> <div class='form-group col-md-6'> <label for='il'>İl</label> <select id='il' class='form-control' onchange='ilcedoldur(this.value)'> <option disabled selected value>Bir il Seçiniz</option> </select> </div> <div class='form-group col-md-6'> <label for='ilce'>İlçe</label> <select id='ilce' class='form-control'> <option disabled selected value>Bir ilçe Seçiniz</option> </select> </div> <div class='form-group col-md-6'> <label for='kameramarka'>Kamera Marka</label> <input type='text' class='form-control' id='kameramarka' placeholder='Kamera Marka giriniz'> </div> <div class='form-group col-md-6'> <label for='kameramodeli'>Kamera Modeli</label> <input type='text' class='form-control' id='kameramodel' placeholder='Kamera Model giriniz'> </div> <div class='form-group col-md-6'> <label for='mc'>Tip</label> <select id='tip' class='form-control'> <option disabled selected value>Kamera tipini seçiniz</option> <option value='Sabit'>Sabit</option> <option value='Hareketli'>Hareketli</option> <option value='Lazer'>Lazer</option> <option value='Termal'>Termal</option> </select> </div> <div class='form-group col-md-6'> <label>Adet </label> <input type='number' class='form-control' id='kameraadet' placeholder='Kamera adetini giriniz!!!'> </div> <div class='form-group col-md-6'> <label for='systemmanagers'>Sistem manager</label> <input type='text' class='form-control' id='systemmanagers' placeholder='Aselsan NVRa kayıt yapıyorsa Aselsan yazınız!! '> </div><div class='form-group col-md-6'> <label for='systemmanagers'>Kayıt Süresi</label> <input type='text' class='form-control' id='kayit' placeholder='Mevcut NVRa kayıt süresini yazınız!! '> </div> </div> <div class='form-row'> <div class='form-group col-md-6'> <label for='mc'>Multicast Desteği</label> <select id='mc' class='form-control'> <option value='Var' selected>Var</option> <option value='Yok'>Yok</option> </select> </div> <div class='form-group col-md-6'> <label for='aciklama'>Açıklama</label> <input type='text' class='form-control' id='aciklama'> </div> </div> <div class='form-group'> <div class='form-check'> <input class='form-check-input' value='Aselsan' type='checkbox' id='aselsanmi'> <label class='form-check-label' for='aselsanmi'> Aselsan NVR'a kayıt yapıyor mu? </label> </div> </div> <button type='button' class='btn btn-primary' onclick='kamerabilgikaydet()'>Kaydet</button> </form> </div> </div>";
+ document.getElementById("icerik").innerHTML="<!-- Page Heading --> <div class='card shadow mb-4'><div class='card-header py-3'> <h6 class='m-0 font-weight-bold text-primary'>Kamera ekleme işlemleri</h6> </div> <div class='card-body'> <form id='formadd'> <div class='form-row'> <div class='form-group col-md-6'> <label for='il'>İl</label> <select id='il' class='form-control' onchange='ilcedoldur(this.value,this.name)' name='ilce'> <option disabled selected value>Bir il Seçiniz</option> </select> </div> <div class='form-group col-md-6'> <label for='ilce'>İlçe</label> <select id='ilce' class='form-control'> <option disabled selected value>Bir ilçe Seçiniz</option> </select> </div> <div class='form-group col-md-6'> <label for='kameramarka'>Kamera Marka</label> <input type='text' class='form-control' id='kameramarka' placeholder='Kamera Marka giriniz'> </div> <div class='form-group col-md-6'> <label for='kameramodeli'>Kamera Modeli</label> <input type='text' class='form-control' id='kameramodel' placeholder='Kamera Model giriniz'> </div> <div class='form-group col-md-6'> <label for='mc'>Tip</label> <select id='tip' class='form-control'> <option disabled selected value>Kamera tipini seçiniz</option> <option value='Sabit'>Sabit</option> <option value='Hareketli'>Hareketli</option> <option value='Lazer'>Lazer</option> <option value='Termal'>Termal</option> </select> </div> <div class='form-group col-md-6'> <label>Adet </label> <input type='number' class='form-control' id='kameraadet' placeholder='Kamera adetini giriniz!!!'> </div> <div class='form-group col-md-6'> <label for='systemmanagers'>Sistem manager</label> <input type='text' class='form-control' id='systemmanagers' placeholder='Aselsan NVRa kayıt yapıyorsa Aselsan yazınız!! '> </div><div class='form-group col-md-6'> <label for='systemmanagers'>Kayıt Süresi</label> <input type='text' class='form-control' id='kayit' placeholder='Mevcut NVRa kayıt süresini yazınız!! '> </div> </div> <div class='form-row'> <div class='form-group col-md-6'> <label for='mc'>Multicast Desteği</label> <select id='mc' class='form-control'> <option value='Var' selected>Var</option> <option value='Yok'>Yok</option> </select> </div> <div class='form-group col-md-6'> <label for='aciklama'>Açıklama</label> <input type='text' class='form-control' id='aciklama'> </div> </div> <div class='form-group'> <div class='form-check'> <input class='form-check-input' value='Aselsan' type='checkbox' id='aselsanmi'> <label class='form-check-label' for='aselsanmi'> Aselsan NVR'a kayıt yapıyor mu? </label> </div> </div> <button type='button' class='btn btn-primary' onclick='kamerabilgikaydet()'>Kaydet</button> </form> </div> </div>";
 
  var il = document.getElementById("il"); 
   var option;
@@ -271,9 +513,13 @@ var il=document.getElementById("il").value;
 
 }
 
-  function ilcedoldur(value){
-     var ilce = document.getElementById("ilce"); 
-            ilce.innerHTML="<option disabled selected value>Bir ilçe Seçiniz</option>";
+  function ilcedoldur(value,element){
+     var ilce = document.getElementById(element);
+
+   
+      var ilceupdate = document.getElementById("ilceupdate");
+         ilce.innerHTML="<option disabled selected value>Bir ilçe Seçiniz</option>";      
+            
               var option;
             for (var i = 0; i < data.length; i++) {
               if(data[i].il===value){
@@ -285,9 +531,11 @@ var il=document.getElementById("il").value;
                 }
 
               }
-          }
+          } 
 
-          }
+  }
+
+
 
 
 
