@@ -1,6 +1,6 @@
  var ilce="ilce";
  var keyupdate="";
-
+ 
 
  // Your web app's Firebase configuration
   var firebaseConfig = {
@@ -55,6 +55,8 @@ function yolla(){
    window.location="index.html";
     
 }
+
+
 function kameradetaydoldur(){
   var t = $('#myTable').DataTable({
      "iDisplayLength":10,
@@ -64,17 +66,18 @@ function kameradetaydoldur(){
         ]
      
     });
-  t.innerHTML="";
-  firebase.auth().onAuthStateChanged(function(user) {
+ t.innerHTML="";
+ 
+ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       document.getElementById("profilnanespan").innerHTML=user.email;
 
       var getdata=firebase.database().ref().child("cameradetay");
-      getdata.on('value', function(snapshot) {
+      getdata.once('value', function(snapshot) {
        snapshot.forEach(function(childSnapshot) {
         var childData = childSnapshot.val();
             
-          t.row.add( [
+          t.row.add([
             childData.il,
             childData.ilce,
             childData.marka,
@@ -82,11 +85,9 @@ function kameradetaydoldur(){
             childData.adet,
             childData.sm,
             childData.kayit,
-            "<div class='row' ><button class='btn btn-danger btn-circle' onclick='silcamera(this.value)'  value='"+childSnapshot.key+"'> <i class='fas fa-trash'></i> </button> <button style='margin-left: 5px' class='btn btn-success btn-circle' data-toggle='modal' data-target='#cameraupdateModal' onclick='updatecameradoldur(this.value,this.value2)' value='"+[childSnapshot.key,childData.il,childData.ilce,childData.marka,childData.model,childData.sm,childData.kayit,childData.adet,childData.tip]+"'> <i class='fas fa-check'></i> </button></div>",
+            "<div class='row'><button class='btn btn-danger btn-circle' onclick='silcamera(this.value)'  value='"+childSnapshot.key+"'> <i class='fas fa-trash'></i> </button> <button style='margin-left: 5px' class='btn btn-success btn-circle' data-toggle='modal' data-target='#cameraupdateModal' onclick='updatecameradoldur(this.value,this.value2)' value='"+[childSnapshot.key,childData.il,childData.ilce,childData.marka,childData.model,childData.sm,childData.kayit,childData.adet,childData.tip]+"'> <i class='fas fa-check'></i> </button></div>",
             
-            ] ).draw( false );
-
-     console.log(childData.il);
+            ]).draw( false );
       });
 
 
@@ -99,7 +100,6 @@ function kameradetaydoldur(){
     }
   });	
 }
-
 
 
 function kablosuzdetaydoldur(){
@@ -117,7 +117,7 @@ function kablosuzdetaydoldur(){
       document.getElementById("profilnanespan").innerHTML=user.email;
 
       var getdata=firebase.database().ref().child("kablosuzdetay");
-      getdata.on('value', function(snapshot) {
+      getdata.once('value', function(snapshot) {
        snapshot.forEach(function(childSnapshot) {
         var childData = childSnapshot.val();
             
@@ -132,7 +132,6 @@ function kablosuzdetaydoldur(){
             
             ] ).draw( false );
 
-     console.log(childData.il);
       });
 
 
@@ -276,18 +275,37 @@ function kamerabilgiupdate(){
 
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-       firebase.database().ref().child("cameradetay").child(keyupdate).child("il").set(il);
-       firebase.database().ref().child("cameradetay").child(keyupdate).child("ilce").set(ilce);
-       firebase.database().ref().child("cameradetay").child(keyupdate).child("marka").set(marka);
-       firebase.database().ref().child("cameradetay").child(keyupdate).child("model").set(model);
-       firebase.database().ref().child("cameradetay").child(keyupdate).child("adet").set(adet);
-       firebase.database().ref().child("cameradetay").child(keyupdate).child("sm").set(sm);
-       firebase.database().ref().child("cameradetay").child(keyupdate).child("kayit").set(kayit);
-       firebase.database().ref().child("cameradetay").child(keyupdate).child("tip").set(tip);  
-       kameratabloekle();
-} else {
-    // No user is signed in.
-  }
+       firebase.database().ref().child("cameradetay").child(keyupdate).set({
+        il:il,
+       ilce:ilce,
+       marka:marka,
+       model:model,
+       tip:tip,
+       adet:adet,
+       sm:sm,
+       kayit:kayit
+
+  }, function(error) {
+    if (error) {
+        swal({
+           title: "Hata!!!",
+           text: error,
+           type: "error",
+           confirmButtonText:"Tamamla",
+       });
+    } else {
+        swal({
+           title: "İşlem Sonucu",
+           text: "İşlem Başarılı",
+           type: "success",
+           confirmButtonText:"Tamamla",
+       });
+         kameratabloekle(); 
+    }
+  });
+     
+}
+
 });
 
 }
@@ -300,21 +318,36 @@ function kablosuzbilgiupdate(){
  var adet=document.getElementById("kablosuzadetupdate").value;
   var tip=document.getElementById("kablosuztipupdate").value;
 
-
-
-  firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-       firebase.database().ref().child("kablosuzdetay").child(keyupdate).child("il").set(il);
-       firebase.database().ref().child("kablosuzdetay").child(keyupdate).child("ilce").set(ilce);
-       firebase.database().ref().child("kablosuzdetay").child(keyupdate).child("marka").set(marka);
-       firebase.database().ref().child("kablosuzdetay").child(keyupdate).child("model").set(model);
-       firebase.database().ref().child("kablosuzdetay").child(keyupdate).child("adet").set(adet);
-       firebase.database().ref().child("kablosuzdetay").child(keyupdate).child("tip").set(tip);  
-       kablosuztabloekle();
-} else {
-    // No user is signed in.
-  }
+       firebase.database().ref().child("cameradetay").child(keyupdate).set({
+        il:il,
+       ilce:ilce,
+       marka:marka,
+       model:model,
+       tip:tip,
+       adet:adet,
+  }, function(error) {
+    if (error) {
+        swal({
+           title: "Hata!!!",
+           text: error,
+           type: "error",
+           confirmButtonText:"Tamamla",
+       });
+    } else {
+        swal({
+           title: "İşlem Sonucu",
+           text: "İşlem Başarılı",
+           type: "success",
+           confirmButtonText:"Tamamla",
+       });
+        kablosuztabloekle();
+    }
+  });
+} 
 });
+
 
 }
 
