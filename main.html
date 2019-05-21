@@ -57,8 +57,9 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" onclick="kameraekle()">Kamera Ekle</a>
-            <a class="collapse-item" onclick="kablosuzekle('kablosuz.html')">Kablosuz Cihaz Ekle</a>
+            <a class="collapse-item" onclick="ekle(tablolar.kamera,'asd')">Kamera Ekle</a>
+            <a class="collapse-item" onclick="ekle(tablolar.kablosuz,'asd')">Kablosuz Cihaz Ekle</a>
+            <a class="collapse-item" onclick="ekle(tablolar.nir,'asd')">NIR-CIR Ekle</a>
           </div>
         </div>
       </li>
@@ -71,8 +72,9 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar" style="">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" onclick="kameratabloekle()">Kamera Detay Tablosu</a>
-             <a class="collapse-item" onclick="kablosuztabloekle()">Kablosuz Detay Tablosu</a>
+            <a class="collapse-item" onclick="ekle(tablolar.kameratablo,'cameradetay')">Kamera Detay Tablosu</a>
+             <a class="collapse-item" onclick="ekle(tablolar.kablosuztablo,'kablosuzdetay')">Kablosuz Detay Tablosu</a>
+              <a class="collapse-item" onclick="ekle(tablolar.nirtablo,'nirdetay')">NIR-CIR Detay Tablosu</a>
           </div>
         </div>
       </li>
@@ -410,24 +412,6 @@
             <script src="js/app.js"></script>
 
 
-            <script>
-
-              var il = document.getElementById("il"); 
-              var option;
-
-              for (var i = 0; i < data.length; i++) {
-               option = document.createElement("option");
-               option.text = data[i].il;
-               option.value== data[i].il; 
-               try {
-                 il.add(option);
-               } catch(e) {
-              // statements
-              console.log(e);
-            }
-
-          }
-
-        </script>
+        
 
       </body></html>

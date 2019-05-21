@@ -1,64 +1,80 @@
 <div class='card shadow mb-4'>
-                  <div class='card-header py-3'>
-                    <h6 class='m-0 font-weight-bold text-primary'>Kablosuz Cihaz Ekle</h6>
-                  </div>
-                  <div class='card-body'>
-                    <form id='formadd'>
-                      <div class='form-row'>
-                        <div class='form-group col-md-6'>
-                          <label for='il'>İl</label>
-                          <select id='il' class='form-control' onchange='ilcedoldur(this.value)'>
-                            <option disabled selected value>Bir il Seçiniz</option>
-                          </select>
-                        </div>
-                        <div class='form-group col-md-6'>
-                          <label for='ilce'>İlçe</label>
-                          <select id='ilce' class='form-control'>
-                            <option disabled selected value>Bir ilçe Seçiniz</option>
-                            
-                          </select>
-                        </div>
-                        <div class='form-group col-md-6'>
-                          <label for='kameramarka'>Kablosuz Marka</label>
-                          <select id='kameramarka' class='form-control'>
-                              <option disabled selected value>Kablosuz Marka seçiniz</option>
-                            <option value='Radwin' selected>Radwin</option>
-                            <option value='Redline'>Redline</option>
-                            <option value='SAF'>SAF 23 GHZ</option>
-                            
-                          </select>
-                        </div>
-                        <div class='form-group col-md-6'>
-                          <label for='kameramodeli'>Kablosuz Modeli</label>
-                          <input type='text' class='form-control' id='kameramodel' placeholder='Kablosuz Model giriniz'>
-                        </div>
-                        <div class='form-group col-md-6'>
-                          <label for='mc'>Tip</label>
-                          <select id='tip' class='form-control'>
+    <div class='card-header py-3'>
+      <h6 class='m-0 font-weight-bold text-primary'>Kablosuz Cihaz Ekle</h6>
+    </div>
+    <div class='card-body'>
+      <form id='formadd'>
+        <div class='form-row'>
+          <div class='form-group col-md-6'>
+            <label >İl</label>
+            <select id='il' class='form-control' onchange='ilcedoldur(this.value,this.name)' name='ilce'>
+              <option disabled selected value>Bir il Seçiniz</option>
+            </select>
+          </div>
+          <div class='form-group col-md-6'>
+            <label>İlçe</label>
+            <select id='ilce' class='form-control'>
+              <option disabled selected value>Bir ilçe Seçiniz</option>
+              
+            </select>
+          </div>
+          <div class='form-group col-md-6'>
+            <label>Depolama Ünitesi Seçiniz</label>
+            <select id='nirdepolama' class='form-control'>
+                <option disabled selected value>Depolama Ünitesi Seçiniz</option>
+              <option value='NIR96'>NIR96</option>
+              <option value='NIR54'>NIR54</option>
+              <option value='CIR96'>CIR96</option>
+               <option value='CIR216'>CIR216</option>
+               <option value='NVR'>NVR</option>
+            </select>
+          </div>
+          <div class='form-group col-md-6'>
+            <label>Seri Numarasını Giriniz </label>
+             <input type='text' class='form-control' id='nirserino' placeholder=''>
+          </div>
+          <div class='form-group col-md-6'>
+            <label>Versiyon Bilgisini Giriniz </label>
+             <input type='text' class='form-control' id='nirversiyon' placeholder=''>
+          </div>
+           <div class='form-group col-md-6'>
+            <label>PTS sunucu ip adresini Giriniz </label>
+             <input type='text' class='form-control' id='nirpts' placeholder=''>
+          </div>
 
-                              <option disabled selected value>Kablosuz tipini seçiniz</option>
-                            <option value='Baz' selected>Baz</option>
-                            <option value='23GHZ'>23GHZ</option>
-                            <option value='p2p'>p2p</option>
-                             
-                          </select>
-                        </div>
-                        <div class='form-group col-md-6'>
-                          <label>Adet </label>
-                           <input type='text' class='form-control' id='kameraadet' placeholder='Kablosuz adetini giriniz!!!'>
-                        </div>
-                        
-                      </div>
-                      
-                      
-                      <div class='form-row'>
-                        <div class='form-group col-md-6'>
-                          <label for='aciklama'>Açıklama</label>
-                          <input type='text' class='form-control' id='aciklama'>
-                        </div>
-                      </div>
-                     
-                      <button type='button' class='btn btn-primary' onclick='kablosuzbilgikaydet()'>Kaydet</button>
-                    </form>
-                  </div>
-                </div>
+          <div class='form-group col-md-6'>
+            <label>Servis ip adresi </label>
+             <input type='text' class='form-control' id='nirservis' placeholder=''>
+          </div>
+          <div class='form-group col-md-6'>
+            <label>Cihaz ip adresi </label>
+             <input type='text' class='form-control' id='nirip' placeholder=''>
+          </div>
+          <div class='form-group col-md-6'>
+            <label>Cihaz IPMI ip adresi</label>
+             <input type='text' class='form-control' id='niripmi' placeholder=''>
+          </div>
+          <div class='form-group col-md-6'>
+            <label>Hostname adını Giriniz </label>
+             <input type='text' class='form-control' id='nirhostname' placeholder='Örnek nir1'>
+          </div>
+            
+           <div class='form-group col-md-6'>
+            <label>Management Address </label>
+             <input type='text' class='form-control' id='nirmanagement' placeholder=''>
+          </div>      
+          <div class='form-group col-md-6'>
+            <label for='aciklama'>NTP adresi</label>
+            <input type='text' class='form-control' id='nirntp'>
+          </div>
+        
+          
+        </div>
+        
+        
+        
+       
+        <button type='button' class='btn btn-primary' onclick='nirbilgikaydet()'>Kaydet</button>
+      </form>
+    </div>
+</div>
