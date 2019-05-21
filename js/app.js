@@ -14,6 +14,7 @@
   firebase.initializeApp(firebaseConfig);
   var email;
   var password;
+
   function girisyap(value) {
    email=document.getElementById("email").value;
    password=document.getElementById("password").value;
@@ -51,6 +52,9 @@
   });
   
 }
+
+let camera=["","ilupdate","ilceupdate","kameramarkaupdate","kameramodelupdate","systemmanagersupdate","kayitupdate","kameraadetupdate","tipupdate"];
+  let kablosuz=["","kablosuzilupdate","kablosuzilceupdate","kablosuzmarkaupdate","kablosuzmodelupdate","kablosuztipupdate","kablosuzadetupdate"];
 function tablodoldur(key,who){
   var t = $('#myTable').DataTable({
      "iDisplayLength":10,
@@ -92,7 +96,7 @@ function tablodoldur(key,who){
             childData.adet,
             childData.sm,
             childData.kayit,
-            "<div class='row'><button class='btn btn-danger btn-circle' onclick='silcamera(this.value)'  value='"+childSnapshot.key+"'> <i class='fas fa-trash'></i> </button> <button style='margin-left: 5px' class='btn btn-success btn-circle' data-toggle='modal' data-target='#cameraupdateModal' onclick='updatecameradoldur(this.value)' value='"+[childSnapshot.key,childData.il,childData.ilce,childData.marka,childData.model,childData.sm,childData.kayit,childData.adet,childData.tip]+"'> <i class='fas fa-check'></i> </button></div>",
+            "<div class='row'><button class='btn btn-danger btn-circle' onclick='silcamera(this.value)'  value='"+childSnapshot.key+"'> <i class='fas fa-trash'></i> </button> <button style='margin-left: 5px' class='btn btn-success btn-circle' data-toggle='modal' data-target='#cameraupdateModal' onclick='updatedoldur(this.value,this.name)' name='"+camera+"' value='"+[childSnapshot.key,childData.il,childData.ilce,childData.marka,childData.model,childData.sm,childData.kayit,childData.adet,childData.tip]+"'> <i class='fas fa-check'></i> </button></div>",
             
             ]).draw( false );
           }//kamera tablosu için 
@@ -132,11 +136,23 @@ function tablodoldur(key,who){
 
 
 
-function updatecameradoldur(key){
+
+function updatedoldur(key,name){
   
   key=key.split(",");
+name=name.split(",");
+ildoldur(name[1]);
+ilcedoldur(name[1],name[2]);
+  for (var i = 1; i < name.length; i++) {
+   document.getElementById(name[i]).value=key[i];
+  }
   
-  var il = document.getElementById("ilupdate"); 
+  keyupdate=key[0];
+
+}
+
+function ildoldur(key){
+  var il = document.getElementById(key); 
               var option;
 
               for (var i = 0; i < data.length; i++) {
@@ -151,42 +167,6 @@ function updatecameradoldur(key){
             }
 
           }
-
-    for (var i = 0; i <81; i++) {
-
-      if(il.options[i].value===key[1]){
-        il.selectedIndex=i;
-
-        ilcedoldur(key[1],"ilceupdate");
-      }
-     
-    }
-    var ilce = document.getElementById("ilceupdate");
-
-    for (var i = 0; i <ilce.length; i++) {
-      if(ilce.options[i].value===key[2]){
-        ilce.selectedIndex=i;
-      }
-     
-    }
-   var tipupdate = document.getElementById("tipupdate");
-    for (var i = 0; i < tipupdate.length; i++) {
-
-      if(tipupdate.options[i].value===key[8]){
-        tipupdate.selectedIndex=i;
-      }
-    }
-
-   // childData.il,childData.ilce,childData.marka,childData.model,childData.sm,childData.kayit,childData.adet
-  document.getElementById("kameramarkaupdate").value=key[3];
-  document.getElementById("kameramodelupdate").value=key[4];
- document.getElementById("kameraadetupdate").value=key[7];
- document.getElementById("systemmanagersupdate").value=key[5];
-  document.getElementById("kayitupdate").value=key[6];
-  
-
- keyupdate=key[0];
-
 }
 
 
@@ -240,7 +220,7 @@ function updatekablosuzdoldur(key){
   document.getElementById("kablosuzmodelupdate").value=key[4];
  document.getElementById("kablosuzadetupdate").value=key[6];
   
-  
+
 
  keyupdate=key[0];
 
