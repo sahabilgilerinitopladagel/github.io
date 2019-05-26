@@ -1,71 +1,105 @@
-<div class='card shadow mb-4'>
-    <div class='card-header py-3'>
-      <h6 class='m-0 font-weight-bold text-primary'>Kablosuz Cihaz Ekle</h6>
+<html lang="tr"><head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  
+  <title>IT</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="vendor/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+
+   <script>
+      
+      if(sessionStorage.getItem("deneme")){
+        window.location="main.html";
+      }
+
+
+
+      </script>
+
+</head>
+
+<body class="bg-gradient-primary">
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Kablosuz Cihaz Ekle</h6>
     </div>
-    <div class='card-body'>
-      <form id='formadd'>
-        <div class='form-row'>
-          <div class='form-group col-md-6'>
+    <div class="card-body">
+      <form id="formadd">
+        <div class="form-row">
+          <div class="form-group col-md-6">
             <label >İl</label>
-            <select id='il' class='form-control' onchange='ilcedoldur(this.value,this.name)' name='ilce'>
+            <select id="il" class="form-control" onchange="ilcedoldur(this.value,this.name)" name="ilce">
               <option disabled selected value>Bir il Seçiniz</option>
             </select>
           </div>
-          <div class='form-group col-md-6'>
+          <div class="form-group col-md-6">
             <label>İlçe</label>
-            <select id='ilce' class='form-control'>
+            <select id="ilce" class="form-control">
               <option disabled selected value>Bir ilçe Seçiniz</option>
               
             </select>
           </div>
-          <div class='form-group col-md-6'>
+          <div class="form-group col-md-6">
             <label>Depolama Ünitesi Seçiniz</label>
-            <select id='nirdepolama' class='form-control'>
+            <select id="nirdepolama" class="form-control">
                 <option disabled selected value>Depolama Ünitesi Seçiniz</option>
-              <option value='NIR96'>NIR96</option>
-              <option value='NIR54'>NIR54</option>
-              <option value='CIR96'>CIR96</option>
-               <option value='CIR216'>CIR216</option>
-               <option value='NVR'>NVR</option>
+              <option value="NIR96">NIR96</option>
+              <option value="NIR54">NIR54</option>
+              <option value="CIR96">CIR96</option>
+               <option value="CIR216">CIR216</option>
+               <option value="NVR">NVR</option>
             </select>
           </div>
-          <div class='form-group col-md-6'>
+          <div class="form-group col-md-6">
             <label>Seri Numarasını Giriniz </label>
-             <input type='text' class='form-control' id='nirserino' placeholder=''>
+             <input type="text" class="form-control" id="nirserino" placeholder="">
           </div>
-          <div class='form-group col-md-6'>
+          <div class="form-group col-md-6">
             <label>Versiyon Bilgisini Giriniz </label>
-             <input type='text' class='form-control' id='nirversiyon' placeholder=''>
+             <input type="text" class="form-control" id="nirversiyon" placeholder="">
           </div>
-           <div class='form-group col-md-6'>
+           <div class="form-group col-md-6">
             <label>PTS sunucu ip adresini Giriniz </label>
-             <input type='text' class='form-control' id='nirpts' placeholder=''>
+             <input type="text" class="form-control" id="nirpts" placeholder="">
           </div>
 
-          <div class='form-group col-md-6'>
+          <div class="form-group col-md-6">
             <label>Servis ip adresi </label>
-             <input type='text' class='form-control' id='nirservis' placeholder=''>
+             <input type="text" class="form-control" id="nirservis" placeholder="">
           </div>
-          <div class='form-group col-md-6'>
+          <div class="form-group col-md-6">
             <label>Cihaz ip adresi </label>
-             <input type='text' class='form-control' id='nirip' placeholder=''>
+             <input type="text" class="form-control" id="nirip" placeholder="">
           </div>
-          <div class='form-group col-md-6'>
+          <div class="form-group col-md-6">
             <label>Cihaz IPMI ip adresi</label>
-             <input type='text' class='form-control' id='niripmi' placeholder=''>
+             <input type="text" class="form-control" id="niripmi" placeholder="">
           </div>
-          <div class='form-group col-md-6'>
+          <div class="form-group col-md-6">
             <label>Hostname adını Giriniz </label>
-             <input type='text' class='form-control' id='nirhostname' placeholder='Örnek nir1'>
+             <input type="text" class="form-control" id="nirhostname" placeholder="Örnek nir1">
           </div>
             
-           <div class='form-group col-md-6'>
+           <div class="form-group col-md-6">
             <label>Management Address </label>
-             <input type='text' class='form-control' id='nirmanagement' placeholder=''>
+             <input type="text" class="form-control" id="nirmanagement" placeholder="">
           </div>      
-          <div class='form-group col-md-6'>
-            <label for='aciklama'>NTP adresi</label>
-            <input type='text' class='form-control' id='nirntp'>
+          <div class="form-group col-md-6">
+            <label for="aciklama">NTP adresi</label>
+            <input type="text" class="form-control" id="nirntp">
           </div>
         
           
@@ -74,7 +108,68 @@
         
         
        
-        <button type='button' class='btn btn-primary' onclick='nirbilgikaydet()'>Kaydet</button>
+        <button type="button" class="btn btn-primary" onclick="nirbilgikaydet()">Kaydet</button>
       </form>
     </div>
 </div>
+
+
+
+<form id="smnvrdetay"> 
+  <div class="form-row"> 
+    <div class="form-group col-md-6"> 
+      <label >İl</label> 
+      <select id="il" class="form-control" onchange="ilcedoldur(this.value,document.getElementById(this.name))" name="ilce"> 
+        <option disabled selected value>Bir il Seçiniz</option>
+         </select>
+
+          </div> 
+          <div class="form-group col-md-6"> 
+            <label>İlçe</label> 
+            <select id="ilce" class="form-control">
+             <option disabled selected value>Bir ilçe Seçiniz</option> 
+           </select> </div> 
+           <div class="form-group col-md-6">
+            <label>switch Tipini Seçiniz</label> 
+            <select id="swtip" class="form-control">
+             <option disabled selected value>switch Tipini Seçiniz</option>
+              <option value="A">A</option> <option value="B">B</option>
+               <option value="C">C</option>
+                </select> </div> 
+               <div class="form-group col-md-6"> 
+                <label>switch Marka Seçiniz</label>
+                 <select id="swmarka" class="form-control"> 
+                  <option disabled selected value>switch Marka Seçiniz</option> 
+                  <option value="Cisco">Cisco</option> 
+                  <option value="Extreme">Extreme</option> 
+                  <option value="Juniper">Juniper</option> 
+                  <option value="Aselsan">Aselsan</option> 
+                </select> </div> <div class="form-group col-md-6"> 
+                  <label>switch Model Seçiniz</label> <select id="swmodel" class="form-control"> 
+                    <option disabled selected value>switch Model Seçiniz</option>
+                     <option value="4500x">4500x</option>
+                      <option value="x460">x460</option> 
+                      <option value="Ex4200">Ex4200</option>
+                       <option value="Ex4300">Ex4300</option> 
+                       <option value="Aselsan">Aselsan</option> 
+                     </select> </div> <div class="form-group col-md-6">
+                      <label>Adet</label> <input type="number" class="form-control" id="swadet" placeholder="Switch adetini giriniz"> 
+                    </div>
+                     <div class="form-group col-md-6"> 
+                      <label>NVR Boyutunu Seçiniz</label>
+                       <select id="nvrboyut" class="form-control"> 
+                        <option disabled selected value>NVR Boyutunu Seçiniz</option> 
+                        <option value="96TB">96TB</option> 
+                        <option value="64TB">64TB</option> 
+                        <option value="yok">Yoktur</option>
+                      </select> 
+                    </div> 
+                    <div class="form-group col-md-6"> 
+                      <label>NVR Adet</label>
+                       <input type="number" class="form-control" id="nvradet" placeholder="NVR adetini giriniz"> 
+                     </div> 
+                   </div> 
+                   <button type="button" class="btn btn-primary" onclick="kaydet(this.value)" value="smnvrdetay">Kaydet</button>
+                    </form> 
+                  </div> 
+                </div>
