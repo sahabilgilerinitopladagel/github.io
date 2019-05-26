@@ -1,3 +1,4 @@
+
  var ilce="ilce";
  let keyupdate="";
  let email;
