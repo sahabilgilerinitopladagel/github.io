@@ -56,10 +56,10 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" onclick="ekle(tablolar.kamera,'asd')">Kamera Ekle</a>
-            <a class="collapse-item" onclick="ekle(tablolar.kablosuz,'asd')">Kablosuz Cihaz Ekle</a>
-            <a class="collapse-item" onclick="ekle(tablolar.nir,'asd')">NIR-CIR Ekle</a>
-            <a class="collapse-item" onclick="ekle(tablolar.swnvr,'asd')">Switch-NVR Ekle</a>
+            <a class="collapse-item" onclick="ekle('cameradetay',false,'Kamera Ekle')">Kamera Ekle</a>
+            <a class="collapse-item" onclick="ekle('kablosuzdetay',false,'Kablosuz Malzeme Ekle')">Kablosuz Cihaz Ekle</a>
+            <a class="collapse-item" onclick="ekle('nirdetay',false,'NIR-CIR Ekle')">NIR-CIR Ekle</a>
+            <a class="collapse-item" onclick="ekle('swnvrdetay',false,'SW-NVR Ekle')">Switch-NVR Ekle</a>
           </div>
         </div>
       </li>
@@ -72,10 +72,10 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar" style="">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" onclick="ekle(tablolar.tablo,'cameradetay')">Kamera Detay Tablosu</a>
-             <a class="collapse-item" onclick="ekle(tablolar.tablo,'kablosuzdetay')">Kablosuz Detay Tablosu</a>
-              <a class="collapse-item" onclick="ekle(tablolar.tablo,'nirdetay')">NIR-CIR Detay Tablosu</a>
-               <a class="collapse-item" onclick="ekle(tablolar.tablo,'swnvrdetay')">Switch-NVR Detay Tablosu</a>
+            <a class="collapse-item" onclick="ekle('cameradetay',true,'Kamera Detay Tablo')">Kamera Detay Tablosu</a>
+             <a class="collapse-item" onclick="ekle('kablosuzdetay',true,'Kablosuz Detay Tablo')">Kablosuz Detay Tablosu</a>
+              <a class="collapse-item" onclick="ekle('nirdetay',true,'NIR-CIR Detay Tablo')">NIR-CIR Detay Tablosu</a>
+               <a class="collapse-item" onclick="ekle('swnvrdetay',true,'SW-NVR Detay Tablo')">Switch-NVR Detay Tablosu</a>
           </div>
         </div>
       </li>
@@ -209,8 +209,15 @@
               <!-- End of Topbar -->
 
               <!-- Begin Page Content -->
-              <div id="icerik" class="container-fluid">
-
+              <div  class="container-fluid">
+                 <div class="card shadow mb-4">
+            <div class="card-header py-3"> 
+              <h6 id="baslik" class="m-0 font-weight-bold text-primary">Anasayfa</h6>
+               </div> 
+               <div class="card-body" id="icerik" >  
+                
+               </div> 
+             </div>
 
 
               </div>
@@ -508,23 +515,24 @@
   <div class="form-row"> 
     <div class="form-group col-md-6"> 
       <label >İl</label> 
-      <select id="il" class="form-control" onchange="ilcedoldur(this.value,document.getElementById(this.name))" name="ilce"> 
+      <select id="il" class="form-control" onchange="ilcedoldur(this.value,document.getElementsByClassName('swnvrilce')[0])"> 
         <option disabled selected value>Bir il Seçiniz</option>
          </select>
 
           </div> 
           <div class="form-group col-md-6"> 
             <label>İlçe</label> 
-            <select id="ilce" class="form-control">
+            <select id="ilce" class="form-control swnvrilce">
              <option disabled selected value>Bir ilçe Seçiniz</option> 
            </select> </div> 
            <div class="form-group col-md-6">
             <label>switch Tipini Seçiniz</label> 
             <select id="swtip" class="form-control">
              <option disabled selected value>switch Tipini Seçiniz</option>
-              <option value="A Tipi">A Tipi</option>
-               <option value="B Tipi">B Tipi</option>
-               <option value="C Tipi">C Tipi</option>
+              <option value="A">A Tipi</option>
+               <option value="B">B Tipi</option>
+               <option value="C">C Tipi</option>
+               <option value="Yoktur">Yoktur</option> 
                 </select> </div> 
                <div class="form-group col-md-6"> 
                 <label>switch Marka Seçiniz</label>
@@ -539,6 +547,7 @@
                   <label>switch Model Seçiniz</label> <select id="swmodel" class="form-control"> 
                     <option disabled selected value>switch Model Seçiniz</option>
                      <option value="4500x">4500x</option>
+                     <option value="4500x">6807</option>
                       <option value="x460">x460</option> 
                       <option value="Ex4200">Ex4200</option>
                        <option value="Ex4300">Ex4300</option> 
@@ -560,10 +569,14 @@
                       <label>NVR Adet</label>
                        <input type="number" class="form-control" id="nvradet" placeholder="NVR adetini giriniz" value="0"> 
                      </div> 
+                        <div class="form-group col-md-6"> 
+                      <label>Açıklama</label>
+                       <input type="text" class="form-control" id="aciklama" placeholder="Varsa açıklama giriniz" value=" "> 
+                     </div> 
+                   </div> 
+                  
                    </div> 
                     </form> 
-
-                  </div>
                   <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal" >iptal</button>
                     <button class="btn btn-success" data-dismiss="modal" onclick="update('swnvrdetay')">Güncelle</button>
@@ -594,6 +607,7 @@
 
             <script type="text/javascript" src="js/ililce.js"></script>
             <script src="js/app.js"></script>
+
            <script src="js/pagination.js"></script>
 
         
