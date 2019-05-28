@@ -9,6 +9,7 @@ var data=[
       "Feke",
       "İmamoğlu",
       "Karaisalı",
+      "Merkez",
       "Karataş",
       "Kozan",
       "Pozantı",
@@ -102,6 +103,7 @@ var data=[
       "Haymana",
       "Kalecik",
       "Kızılcahamam",
+      "Merkez",
       "Nallıhan",
       "Polatlı",
       "Şereflikoçhisar",
@@ -131,6 +133,7 @@ var data=[
       "Korkuteli",
       "Kumluca",
       "Manavgat",
+      "Merkez",
       "Serik",
       "Demre",
       "İbradı",
@@ -169,6 +172,7 @@ var data=[
       "Koçarlı",
       "Kuşadası",
       "Kuyucak",
+      "Merkez",
       "Nazilli",
       "Söke",
       "Sultanhisar",
@@ -196,6 +200,7 @@ var data=[
       "Erdek",
       "Gönen",
       "Havran",
+      "Merkez",
       "İvrindi",
       "Karesi",
       "Kepsut",
@@ -291,6 +296,7 @@ var data=[
       "Keles",
       "Mudanya",
       "Mustafakemalpaşa",
+      "Merkez",
       "Orhaneli",
       "Orhangazi",
       "Yenişehir",
@@ -371,6 +377,7 @@ var data=[
       "Çivril",
       "Merkez",
       "Merkezefendi",
+      "Merkez",
       "Pamukkale",
       "Güney",
       "Kale",
@@ -511,6 +518,7 @@ var data=[
       "Oğuzeli",
       "Yavuzeli",
       "Şahinbey",
+      "Merkez",
       "Şehitkamil",
       "Karkamış",
       "Nurdağı"
@@ -571,6 +579,7 @@ var data=[
       "Hassa",
       "Antakya",
       "İskenderun",
+      "Merkez",
       "Kırıkhan",
       "Payas",
       "Reyhanlı",
@@ -616,6 +625,7 @@ var data=[
       "Akdeniz",
       "Mezitli",
       "Toroslar",
+      "Merkez",
       "Yenişehir"
     ]
   },
@@ -678,6 +688,7 @@ var data=[
       "Karaburun",
       "Karşıyaka",
       "Kemalpaşa",
+      "Merkez",
       "Kınık",
       "Kiraz",
       "Menemen",
@@ -744,6 +755,7 @@ var data=[
     "il": "Kayseri",
     "plaka": 38,
     "ilceleri": [
+    "Merkez",
       "Bünyan",
       "Develi",
       "Felahiye",
@@ -811,6 +823,7 @@ var data=[
     "il": "Konya",
     "plaka": 42,
     "ilceleri": [
+    "Merkez",
       "Akşehir",
       "Beyşehir",
       "Bozkır",
@@ -946,6 +959,7 @@ var data=[
     "il": "Muğla",
     "plaka": 48,
     "ilceleri": [
+    "Merkez",
       "Bodrum",
       "Datça",
       "Fethiye",
@@ -1011,6 +1025,7 @@ var data=[
       "Korgan",
       "Kumru",
       "Mesudiye",
+      "Merkez",
       "Perşembe",
       "Ulubey",
       "Ünye",
@@ -1054,6 +1069,7 @@ var data=[
       "Sapanca",
       "Kocaali",
       "Pamukova",
+      "Merkez",
       "Taraklı",
       "Ferizli",
       "Karapürçek",
@@ -1068,6 +1084,7 @@ var data=[
     "il": "Samsun",
     "plaka": 55,
     "ilceleri": [
+    "Merkez",
       "Alaçam",
       "Bafra",
       "Çarşamba",
@@ -1150,6 +1167,7 @@ var data=[
       "Muratlı",
       "Saray",
       "Süleymanpaşa",
+      "Merkez",
       "Kapaklı",
       "Şarköy",
       "Marmaraereğlisi"
@@ -1184,6 +1202,7 @@ var data=[
       "Maçka",
       "Of",
       "Ortahisar",
+      "Merkez",
       "Sürmene",
       "Tonya",
       "Vakfıkebir",
@@ -1290,7 +1309,9 @@ var data=[
       "Ereğli",
       "Merkez",
       "Alaplı",
-      "Gökçebey"
+      "Gökçebey",
+      "Kilimli",
+      "Kozlu"
     ]
   },
   {

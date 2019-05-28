@@ -266,7 +266,7 @@ function ildoldur(key){
 
       }
 
-     /* function abc(){
+      function abc(){
 
         ankara.forEach(function(element) {
           //console.log(element);
@@ -281,7 +281,7 @@ function ildoldur(key){
             });
            
          });
-      }*/
+      }
 
 
       function kaydet(name){
