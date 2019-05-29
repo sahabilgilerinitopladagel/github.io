@@ -57,10 +57,13 @@ function doldur(){
 
 
 
+
+
 let exeldata=[];
 let exelvalue=[];
 
 function tabloxyz(key){
+  let table= document.getElementById("myTable");
   let t = document.querySelector("tbody");
   let thead = document.querySelector("thead");
   let newRow; 
@@ -141,7 +144,10 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 
            });//childSnapshot
+     
+    
      pagination();
+     
 
      });//snapshot
 
