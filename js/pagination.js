@@ -27,7 +27,23 @@ pagecount=Math.ceil((rowcount-1)/viewrowcount);//sayfa sayısı
    ii=ii+1;
    
  }
- table.insertAdjacentHTML("beforebegin","<nav class='navbar navbar-expand-lg navbar-light bg-light'> <a class='navbar-brand' href='#'>Navbar</a> <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'> <span class='navbar-toggler-icon'></span> </button> <div class='collapse navbar-collapse' id='navbarSupportedContent'> <ul class='navbar-nav mr-auto'> <li class='nav-item dropdown'> <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'> Dropdown </a> <div class='dropdown-menu' aria-labelledby='navbarDropdown'> <a class='dropdown-item' onclick=(rowcount(5))>5</a> <a class='dropdown-item' href='#'>Another action</a> <div class='dropdown-divider'></div> <a class='dropdown-item' href='#'>Something else here</a> </div> </li> <li class='nav-item'> <a class='nav-link' href='#'>Link</a> </li> </ul> <form class='form-inline my-2 my-lg-0'> <input class='form-control mr-sm-2' type='search' placeholder='Ara' aria-label='Search'> <button class='btn btn-outline-success my-2 my-sm-0' type='button'>Search</button> </form> </div> </nav>");
+ table.insertAdjacentHTML("beforebegin","<div class='navbar navbar-expand-lg navbar-light bg-light'> <button class='navbar-toggler' type='button' data-toggle='collapse'"+
+  " data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false'"+
+  " aria-label='Toggle navigation'><span class='navbar-toggler-icon'></span> </button>"+
+  "<div class='collapse navbar-collapse' id='navbarSupportedContent'> <ul class='navbar-nav mr-auto'>"+
+  " <li class='nav-item dropdown'> <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' "+
+  "role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'> Listele </a>"+
+  " <div class='dropdown-menu' aria-labelledby='navbarDropdown'> <a class='dropdown-item' onclick=(rowcountFunc(5))>5</a> "+
+  "<a class='dropdown-item' onclick=(rowcountFunc(10))>10</a> <a class='dropdown-item' onclick=(rowcountFunc(25))>25</a>"+
+  "<a class='dropdown-item' onclick=(rowcountFunc(50))>50</a><a class='dropdown-item' onclick=(rowcountFunc(100))>100</a>"+
+  " </div> </li> <li class='nav-item'> <button type='button' class='btn btn-outline-info my-2 my-sm-0' onclick='exel()'> Exel</button> </li> </ul>"+
+  " <form class='form-inline my-2 my-lg-0'> <input  class='form-control mr-sm-2'  placeholder='Ara'"+
+  " aria-label='Search' onkeyup='search(this.value)' id='tableara'>"+
+  " <button class='btn btn-outline-success my-2 my-sm-0' type='button' >Ara</button> "+
+  "</form> </div> </div>");
+ table.insertAdjacentHTML("afterend","<div class='col-sm-12'> <div class='row'>"+
+  " <div class='col-sm-6 col-md-6' id='showing'> </div> <div class='col-sm-6 col-md-6 ' > <nav aria-label='Page navigation example '>"+
+  "<ul  id='btngrup' class='pagination justify-content-end'></ul></nav> </div> </div> </div>");
  /*table.insertAdjacentHTML("beforebegin","<div class='col-sm-12'> <div class='row'>"+
   "<div class='col-sm-6 col-md-2'> <select onchange='rowcountFunc(this.value)' class='custom-select custom-select-sm form-control form-control-sm'>"+
   "<option value='5'>5</option><option value='10' selected>10</option>"+
@@ -52,13 +68,12 @@ function search(value){
   ii=0;
   var td,tr;
   if(value!==""){
-  value = value.toUpperCase();
+  value = value.toLowerCase();
    tr = vtable.getElementsByTagName("tr");
-
    for (var i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td");
         for (var j = 0; j < td.length; j++) {
-            if (td[j].innerHTML.toUpperCase().indexOf(value) > -1) {
+            if (td[j].innerHTML.toLowerCase().indexOf(value) > -1) {
                 columndata[ii]=tr[i].outerHTML;
                 ii=ii+1;
                 break;
@@ -114,12 +129,12 @@ function sayfabutton(pagecount,currentpage){
  ileri=(currentpage==pagecount)?"disabled":"";
  sol=currentpage-3;
  sag=currentpage+3
-var butonlar="<button type='button' class='btn btn-default btn-outline waves-effect' onclick='sort("+(currentpage - 1)+")' "+geri+" ><i class='fa fa-chevron-left'></i></button>"; 
+var butonlar="<li class='page-item "+geri+"' > <a class='page-link' onclick='sort("+(currentpage + 1)+")' >Geri</a> </li>"; 
  if(currentpage<=3){
   sag=7;
 }else{
-   butonlar+="<button type='button' class='btn btn-default btn-light btn-outline waves-effect' onclick='sort(1)' "+geri+" >1</button>";
-   butonlar+="<button type='button' class='btn btn-default btn-light btn-outline waves-effect' disabled "+geri+" >...</button>";
+   butonlar+="<li class='page-item'><a class='page-link' onclick='sort(1)'>1</a></li>";
+   butonlar+="<li class='page-item disabled' ><a class='page-link '>...</a></li>";
    sol=sol+1;
   
 }
@@ -129,10 +144,10 @@ var butonlar="<button type='button' class='btn btn-default btn-outline waves-eff
 for (var i =sol; i <=sag ;i++) {
 if(i>0&&i<=pagecount){
   if(currentpage===i){
-    butonlar += "<button type='button'  class='btn btn-default btn-info btn-outline waves-effect ' onclick='sort("+i+")' "+i+" > "+i+"</button>";
+    butonlar += "<li class='page-item active'><a class='page-link ' onclick='sort("+i+")'>"+i+"</a></li>";
     }
     else{
-  butonlar += "<button type='button'  class='btn btn-default btn-light btn-outline waves-effect ' onclick='sort("+i+")' "+i+" > "+i+"</button>"; 
+  butonlar += "<li class='page-item'><a class='page-link' onclick='sort("+i+")'>"+i+"</a></li>"; 
       }
   }         
                                    }                                   
@@ -141,11 +156,11 @@ if(sag>=pagecount){
   sol=pagecount-6;
 }
 else{
-   butonlar+="<button type='button' class='btn btn-default btn-light btn-outline waves-effect' disabled  >...</button>";
-   butonlar+="<button type='button' class='btn btn-default btn-light btn-outline waves-effect' onclick='sort("+pagecount+")' >"+pagecount+"</button>";
+   butonlar+="<li class='page-item disabled' ><a class='page-link disabled'>...</a></li>";
+   butonlar+="<li class='page-item'><a class='page-link' onclick='sort("+pagecount+")'>"+pagecount+"</a></li>";
   sag=sag+1;
 }
-   butonlar += "<button type='button'  class='btn btn-default btn-outline waves-effect ' onclick='sort("+(currentpage + 1)+")' "+ileri+" ><i class='fa fa-chevron-right'></button>";
+   butonlar += " <li class='page-item "+ileri+"'><a class='page-link' onclick='sort("+(currentpage + 1)+")' >İleri</a></li>";
    
 
  return butonlar;
