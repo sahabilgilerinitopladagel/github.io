@@ -1,4 +1,5 @@
 <html lang="tr">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,16 +11,18 @@
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
   <link href="vendor/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
-  <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
   <script>
 
-    if(!sessionStorage.getItem('deneme')){
-      window.location="index.html";
+    if (!sessionStorage.getItem('deneme')) {
+      window.location = "index.html";
     }
   </script>
 
@@ -40,42 +43,49 @@
           <i class="fas fa-laugh-wink"></i>
         </div>
         <div class="sidebar-brand-text mx-3">IT
-         <sup>2</sup></div>
-       </a>
+          <sup>2</sup></div>
+      </a>
 
-       <!-- Divider -->
-       <hr class="sidebar-divider my-0">
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
 
-       <!-- Nav Item - Dashboard -->
+      <!-- Nav Item - Dashboard -->
 
-       <!-- Nav Item - Pages Collapse Menu -->
-       <li class="nav-item">
-         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+          aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
           <span>İşlemler</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" onclick="ekle('cameradetay',false,'Kamera Ekle')">Kamera Ekle</a>
-            <a class="collapse-item" onclick="ekle('kablosuzdetay',false,'Kablosuz Malzeme Ekle')">Kablosuz Cihaz Ekle</a>
+            <a class="collapse-item" onclick="ekle('kablosuzdetay',false,'Kablosuz Malzeme Ekle')">Kablosuz Cihaz
+              Ekle</a>
             <a class="collapse-item" onclick="ekle('nirdetay',false,'NIR-CIR Ekle')">NIR-CIR Ekle</a>
             <a class="collapse-item" onclick="ekle('swnvrdetay',false,'SW-NVR Ekle')">Switch-NVR Ekle</a>
+            <a class="collapse-item" onclick="ekle('detaycihazadet',false,'Detay Cihaz Adetleri')">Detay Cihaz Adetleri</a>
           </div>
         </div>
       </li>
 
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false"
+          aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
           <span>Tablolar</span>
         </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar" style="">
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar"
+          style="">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" onclick="ekle('cameradetay',true,'Kamera Detay Tablo')">Kamera Detay Tablosu</a>
-             <a class="collapse-item" onclick="ekle('kablosuzdetay',true,'Kablosuz Detay Tablo')">Kablosuz Detay Tablosu</a>
-              <a class="collapse-item" onclick="ekle('nirdetay',true,'NIR-CIR Detay Tablo')">NIR-CIR Detay Tablosu</a>
-               <a class="collapse-item" onclick="ekle('swnvrdetay',true,'SW-NVR Detay Tablo')">Switch-NVR Detay Tablosu</a>
+            <a class="collapse-item" onclick="ekle('kablosuzdetay',true,'Kablosuz Detay Tablo')">Kablosuz Detay
+              Tablosu</a>
+            <a class="collapse-item" onclick="ekle('nirdetay',true,'NIR-CIR Detay Tablo')">NIR-CIR Detay Tablosu</a>
+            <a class="collapse-item" onclick="ekle('swnvrdetay',true,'SW-NVR Detay Tablo')">Switch-NVR Detay Tablosu</a>
+            <a class="collapse-item" onclick="ekle('detaycihazadet',true,'Detay Cihaz Adetleri Detay Tablo')">Switch-NVR Detay Tablosu</a>
           </div>
         </div>
       </li>
@@ -105,21 +115,24 @@
           </button>
 
           <!-- Topbar Search -->
-         
+
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
             <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-search fa-fw"></i>
               </a>
               <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                      aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                       <button class="btn btn-primary" type="button">
                         <i class="fas fa-search fa-sm"></i>
@@ -132,13 +145,15 @@
 
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
                 <span class="badge badge-danger badge-counter">3+</span>
               </a>
               <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">
                   Alerts Center
                 </h6>
@@ -159,13 +174,15 @@
 
             <!-- Nav Item - Messages -->
             <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
                 <!-- Counter - Messages -->
                 <span class="badge badge-danger badge-counter">7</span>
               </a>
               <!-- Dropdown - Messages -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">
 
                 </h6>
@@ -186,7 +203,8 @@
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="profilnanespan"></span>
                 <img class="img-profile rounded-circle" src="img/default_user.jpg">
               </a>
@@ -194,427 +212,527 @@
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Profilim</a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>Ayarlar</a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>Ayarlar</a>
 
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                      <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Çıkış Yap</a>
-                    </div>
-                  </li>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Çıkış Yap</a>
+              </div>
+            </li>
 
-                </ul>
+          </ul>
 
-              </nav>
-              <!-- End of Topbar -->
+        </nav>
+        <!-- End of Topbar -->
 
-              <!-- Begin Page Content -->
-              <div  class="container-fluid">
-                 <div class="card shadow mb-4">
-            <div class="card-header py-3"> 
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
               <h6 id="baslik" class="m-0 font-weight-bold text-primary">Anasayfa</h6>
-               </div> 
-               <div class="card-body" id="icerik" >  
-                
-               </div> 
-             </div>
-
-
-              </div>
-              <!-- /.container-fluid -->
-
             </div>
-            <!-- End of Main Content -->
+            <div class="card-body" id="icerik">
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-              <div class="container my-auto">
-                <div class="copyright text-center my- auto">
-                  <span>Powered By © ABY</span>
-                </div>
-              </div>
-            </footer>
-            <!-- End of Footer -->
-
-          </div>
-          <!-- End of Content Wrapper -->
-
-        </div>
-        <!-- End of Page Wrapper -->
-
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-          <i class="fas fa-angle-up"></i>
-        </a>
-
-        <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Oturum Sonlandırma</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div class="modal-body">Oturumunuzu Sonlandırmak istediğinizden emin misiniz?</div>
-              <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">iptal</button>
-                <button class="btn btn-danger" onclick="logout()">Çıkış Yap</button>
-              </div>
             </div>
           </div>
+
+
         </div>
+        <!-- /.container-fluid -->
 
-        <!--end Logout Modal-->
-        <!-- kamera güncelle modal-->
-        <div class="modal fade" id="cameradetay" tabindex="-1" role="dialog" aria-labelledby="cameraupdateModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="cameraupdateModalLabel">Kamera Bilgilerini Güncelle</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my- auto">
+            <span>Powered By © ABY</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Oturum Sonlandırma</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Oturumunuzu Sonlandırmak istediğinizden emin misiniz?</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">iptal</button>
+          <button class="btn btn-danger" onclick="logout()">Çıkış Yap</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--end Logout Modal-->
+  <!-- kamera güncelle modal-->
+  <div class="modal fade" id="cameradetay" tabindex="-1" role="dialog" aria-labelledby="cameraupdateModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cameraupdateModalLabel">Kamera Bilgilerini Güncelle</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="formadd">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="il">İl</label>
+                <select id="il" class="form-control" onchange="ilcedoldur(this.value,document.getElementById('ilce'))">
+                  <option disabled selected value>Bir il Seçiniz</option>
+                </select>
               </div>
-              <div class="modal-body">
-               <form id="formadd"> 
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="il">İl</label>
-                    <select id="il" class="form-control" onchange="ilcedoldur(this.value,document.getElementById('ilce'))">
-                      <option disabled selected value>Bir il Seçiniz</option>
-                    </select> 
-                  </div>
-                  <div class="form-group col-md-6"> 
-                    <label for="ilce">İlçe</label> 
-                    <select id="ilce" class="form-control"> 
-                      <option disabled selected value>Bir ilçe Seçiniz</option> 
-                    </select> </div> <div class="form-group col-md-6"> 
-                      <label for="marka">Kamera Marka</label> 
-                      <input type="text" class="form-control" id="marka" placeholder="Kamera Marka giriniz"> 
-                    </div> 
-                    <div class="form-group col-md-6"> 
-                      <label for="model">Kamera Modeli</label> 
-                      <input type="text" class="form-control" id="model" placeholder="Kamera Model giriniz"> 
-                    </div> 
-                    <div class="form-group col-md-6"> <label for="mc">Tip</label>
-                     <select id="tip" class="form-control"> 
-                      <option disabled selected value>Kamera tipini seçiniz</option>
-                      <option value="Sabit">Sabit</option> 
-                      <option value="Hareketli">Hareketli</option> 
-                      <option value="Encoder">Encoder</option> 
-                      <option value="Lazer">Lazer</option>
-                      <option value="Termal">Termal</option> 
-                    </select> 
-                  </div>
-                   <div class="form-group col-md-6"> 
-                     <label>Adet </label> 
-                     <input type="number" class="form-control" id="adet" placeholder="Kamera adetini giriniz!!!"> 
-                   </div> 
-                    
-                    
-                     <input type="hidden" class="form-control" id="uyum" value="?"> 
-                      <input type="hidden" class="form-control" id="onvif" value="?"> 
-                   <div class="form-group col-md-6"> 
-                     <label >Sistem manager</label> 
-                     <input type="text" class="form-control" id="sm" placeholder="Aselsan NVRa kayıt yapıyorsa Aselsan yazınız!! "> 
-                   </div>
-                   <div class="form-group col-md-6"> 
-                     <label for="mc">Multicast Desteği</label> 
-                     <select id="mc" class="form-control"> 
-                      <option value="Var" selected>Var</option> 
-                      <option value="Yok">Yok</option> 
-                     
-                    </select> 
-                   </div>
-                   <div class="form-group col-md-6"> 
-                     <label for="kayitupdate">Kayıt Süresi</label> 
-                     <input type="text" class="form-control" id="kayit" placeholder="Mevcut NVRa kayıt süresini yazınız!! "> 
-                   </div> 
-                   <div class="form-group col-md-6"> 
-                     <label for="kayitupdate">Açıklama</label> 
-                     <input type="text" class="form-control" id="aciklama" placeholder="Mevcut NVRa kayıt süresini yazınız!! "> 
-                   </div> 
-                   <input type="hidden" class="form-control" id="oneri" value="KABULE HAZIR"> 
-                      <input type="hidden" class="form-control" id="karar" value="KABULE HAZIR"> 
-                 </div> 
-                </form>
+              <div class="form-group col-md-6">
+                <label for="ilce">İlçe</label>
+                <select id="ilce" class="form-control">
+                  <option disabled selected value>Bir ilçe Seçiniz</option>
+                </select> </div>
+              <div class="form-group col-md-6">
+                <label for="marka">Kamera Marka</label>
+                <input type="text" class="form-control" id="marka" placeholder="Kamera Marka giriniz">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="model">Kamera Modeli</label>
+                <input type="text" class="form-control" id="model" placeholder="Kamera Model giriniz">
+              </div>
+              <div class="form-group col-md-6"> <label for="mc">Tip</label>
+                <select id="tip" class="form-control">
+                  <option disabled selected value>Kamera tipini seçiniz</option>
+                  <option value="Sabit">Sabit</option>
+                  <option value="Hareketli">Hareketli</option>
+                  <option value="Encoder">Encoder</option>
+                  <option value="Lazer">Lazer</option>
+                  <option value="Termal">Termal</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label>Adet </label>
+                <input type="number" class="form-control" id="adet" placeholder="Kamera adetini giriniz!!!">
+              </div>
 
 
-                  </div>
-                  <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal" >iptal</button>
-                    <button class="btn btn-success" data-dismiss="modal" onclick="update('cameradetay')">Güncelle</button>
-                  </div>
-                </div>
+              <input type="hidden" class="form-control" id="uyum" value="?">
+              <input type="hidden" class="form-control" id="onvif" value="?">
+              <div class="form-group col-md-6">
+                <label>Sistem manager</label>
+                <input type="text" class="form-control" id="sm"
+                  placeholder="Aselsan NVRa kayıt yapıyorsa Aselsan yazınız!! ">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="mc">Multicast Desteği</label>
+                <select id="mc" class="form-control">
+                  <option value="Var" selected>Var</option>
+                  <option value="Yok">Yok</option>
+
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="kayitupdate">Kayıt Süresi</label>
+                <input type="text" class="form-control" id="kayit" placeholder="Mevcut NVRa kayıt süresini yazınız!! ">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="kayitupdate">Açıklama</label>
+                <input type="text" class="form-control" id="aciklama"
+                  placeholder="Mevcut NVRa kayıt süresini yazınız!! ">
+              </div>
+              <input type="hidden" class="form-control" id="oneri" value="KABULE HAZIR">
+              <input type="hidden" class="form-control" id="karar" value="KABULE HAZIR">
+            </div>
+          </form>
+
+
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">iptal</button>
+          <button class="btn btn-success" data-dismiss="modal" onclick="update('cameradetay')">Güncelle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end kamera güncelle modal-->
+
+
+
+  <!-- kablosuz güncelle modal-->
+  <div class="modal fade" id="kablosuzdetay" tabindex="-1" role="dialog" aria-labelledby="kablosuzupdateModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="kablosuzupdateModalLabel">Kablosuz Bilgilerini Güncelle</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="formadd">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>İl</label>
+                <select id="il" class="form-control "
+                  onchange="ilcedoldur(this.value,document.getElementsByClassName('kablosuzilce')[0])">
+                  <option disabled selected value>Bir il Seçiniz</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label>İlçe</label>
+                <select id="ilce" class="form-control kablosuzilce">
+                  <option disabled selected value>Bir ilçe Seçiniz</option>
+                </select> </div>
+              <div class="form-group col-md-6">
+                <label for="marka">Kablosuz Marka</label>
+                <input type="text" class="form-control" id="marka" placeholder="Kablosuz Marka giriniz">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="model">Kablosuz Modeli</label>
+                <input type="text" class="form-control" id="model" placeholder="Kablosuz Model giriniz">
+              </div>
+              <div class="form-group col-md-6"> <label for="tip">Tip</label>
+                <select id="tip" class="form-control">
+                  <option disabled selected value>Kablosuz tipini seçiniz</option>
+                  <option value="Baz">Baz</option>
+                  <option value="23GHZ">23GHZ</option>
+                  <option value="p2p">p2p</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label>Adet </label>
+                <input type="number" class="form-control" id="adet" placeholder="Kablosuz adetini giriniz!!!">
+              </div>
+              <div class="form-group col-md-6">
+                <label>Açıklama </label>
+                <input type="text" class="form-control" id="aciklama" placeholder="Açıklama giriniz!!!">
               </div>
             </div>
-            <!-- end kamera güncelle modal-->
+          </form>
 
 
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">iptal</button>
+          <button class="btn btn-success" data-dismiss="modal" onclick="update('kablosuzdetay')">Güncelle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end kablosuz güncelle modal-->
 
-             <!-- kablosuz güncelle modal-->
-        <div class="modal fade" id="kablosuzdetay" tabindex="-1" role="dialog" aria-labelledby="kablosuzupdateModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="kablosuzupdateModalLabel">Kablosuz Bilgilerini Güncelle</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
+  <!-- NIR-CIR güncelle modal-->
+  <div class="modal fade" id="nirdetay" tabindex="-1" role="dialog" aria-labelledby="nirModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="nirModalLabel">NIR-CIR Bilgilerini Güncelle</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id='formadd'>
+            <div class='form-row'>
+              <div class='form-group col-md-6'>
+                <label>İl</label>
+                <select id='il' class='form-control'
+                  onchange="ilcedoldur(this.value,document.getElementsByClassName('nirilce')[0])">
+                  <option disabled selected value>Bir il Seçiniz</option>
+                </select>
               </div>
-              <div class="modal-body">
-               <form id="formadd"> 
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label >İl</label>
-                    <select id="il" class="form-control " onchange="ilcedoldur(this.value,document.getElementsByClassName('kablosuzilce')[0])">
-                      <option disabled selected value>Bir il Seçiniz</option>
-                    </select> 
-                  </div>
-                  <div class="form-group col-md-6"> 
-                    <label>İlçe</label> 
-                    <select id="ilce" class="form-control kablosuzilce"> 
-                      <option disabled selected value>Bir ilçe Seçiniz</option> 
-                    </select> </div> <div class="form-group col-md-6"> 
-                      <label for="marka">Kablosuz Marka</label> 
-                      <input type="text" class="form-control" id="marka" placeholder="Kablosuz Marka giriniz"> 
-                    </div> 
-                    <div class="form-group col-md-6"> 
-                      <label for="model">Kablosuz Modeli</label> 
-                      <input type="text" class="form-control" id="model" placeholder="Kablosuz Model giriniz"> 
-                    </div> 
-                    <div class="form-group col-md-6"> <label for="tip">Tip</label>
-                     <select id="tip" class="form-control"> 
-                      <option disabled selected value>Kablosuz tipini seçiniz</option>
-                      <option value="Baz">Baz</option> 
-                      <option value="23GHZ">23GHZ</option> 
-                      <option value="p2p">p2p</option>
-                    </select> 
-                  </div>
-                   <div class="form-group col-md-6"> 
-                     <label>Adet </label> 
-                     <input type="number" class="form-control" id="adet" placeholder="Kablosuz adetini giriniz!!!"> 
-                   </div>
-                   <div class="form-group col-md-6"> 
-                     <label>Açıklama </label> 
-                     <input type="text" class="form-control" id="aciklama" placeholder="Açıklama giriniz!!!"> 
-                   </div> 
-                 </div> 
-                </form>
+              <div class='form-group col-md-6'>
+                <label>İlçe</label>
+                <select id='ilce' class='form-control nirilce'>
+                  <option disabled selected value>Bir ilçe Seçiniz</option>
 
-
-                  </div>
-                  <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal" >iptal</button>
-                    <button class="btn btn-success" data-dismiss="modal" onclick="update('kablosuzdetay')">Güncelle</button>
-                  </div>
-                </div>
+                </select>
               </div>
+              <div class='form-group col-md-6'>
+                <label>Depolama Ünitesi Seçiniz</label>
+                <select id='depolama' class='form-control'>
+                  <option disabled selected value>Depolama Ünitesi Seçiniz</option>
+                  <option value='NIR96'>NIR96</option>
+                  <option value='NIR54'>NIR54</option>
+                  <option value='CIR96'>CIR96</option>
+                  <option value='CIR216'>CIR216</option>
+                  <option value='NVR'>NVR</option>
+                </select>
+              </div>
+              <div class='form-group col-md-6'>
+                <label>Seri Numarasını Giriniz </label>
+                <input type='text' class='form-control' id='serino' placeholder=''>
+              </div>
+              <div class='form-group col-md-6'>
+                <label>Versiyon Bilgisini Giriniz </label>
+                <input type='text' class='form-control' id='versiyon' placeholder=''>
+              </div>
+              <div class='form-group col-md-6'>
+                <label>PTS sunucu ip adresini Giriniz </label>
+                <input type='text' class='form-control' id='pts' placeholder=''>
+              </div>
+
+              <div class='form-group col-md-6'>
+                <label>Servis ip adresi </label>
+                <input type='text' class='form-control' id='servisip' placeholder=''>
+              </div>
+              <div class='form-group col-md-6'>
+                <label>Cihaz ip adresi </label>
+                <input type='text' class='form-control' id='ip' placeholder=''>
+              </div>
+              <div class='form-group col-md-6'>
+                <label>Cihaz IPMI ip adresi</label>
+                <input type='text' class='form-control' id='ipmi' placeholder=''>
+              </div>
+              <div class='form-group col-md-6'>
+                <label>Hostname adını Giriniz </label>
+                <input type='text' class='form-control' id='hostname' placeholder='Örnek nir1'>
+              </div>
+
+              <div class='form-group col-md-6'>
+                <label>Management Address </label>
+                <input type='text' class='form-control' id='management' placeholder=''>
+              </div>
+              <div class='form-group col-md-6'>
+                <label for=''>NTP adresi</label>
+                <input type='text' class='form-control' id='ntp'>
+              </div>
+
+
             </div>
-            <!-- end kablosuz güncelle modal-->
-          
-             <!-- NIR-CIR güncelle modal-->
-        <div class="modal fade" id="nirdetay" tabindex="-1" role="dialog" aria-labelledby="nirModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="nirModalLabel">NIR-CIR Bilgilerini Güncelle</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">iptal</button>
+          <button class="btn btn-success" data-dismiss="modal" onclick="update('nirdetay')">Güncelle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end NIR-CIR güncelle modal-->
+
+
+  <!-- SW-NVR güncelle modal-->
+  <div class="modal fade" id="swnvrdetay" tabindex="-1" role="dialog" aria-labelledby="nirModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="nirModalLabel">NIR-CIR Bilgilerini Güncelle</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="asdadc">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>İl</label>
+                <select id="il" class="form-control"
+                  onchange="ilcedoldur(this.value,document.getElementsByClassName('swnvrilce')[0])">
+                  <option disabled selected value>Bir il Seçiniz</option>
+                </select>
+
               </div>
-              <div class="modal-body">
-                <form id='formadd'>
-                  <div class='form-row'>
-                    <div class='form-group col-md-6'>
-                      <label >İl</label>
-                      <select id='il' class='form-control' onchange="ilcedoldur(this.value,document.getElementsByClassName('nirilce')[0])">
-                        <option disabled selected value>Bir il Seçiniz</option>
-                      </select>
-                    </div>
-                    <div class='form-group col-md-6'>
-                      <label>İlçe</label>
-                      <select id='ilce' class='form-control nirilce'>
-                        <option disabled selected value>Bir ilçe Seçiniz</option>
-                        
-                      </select>
-                    </div>
-                    <div class='form-group col-md-6'>
-                      <label>Depolama Ünitesi Seçiniz</label>
-                      <select id='depolama' class='form-control'>
-                          <option disabled selected value>Depolama Ünitesi Seçiniz</option>
-                        <option value='NIR96'>NIR96</option>
-                        <option value='NIR54'>NIR54</option>
-                        <option value='CIR96'>CIR96</option>
-                         <option value='CIR216'>CIR216</option>
-                         <option value='NVR'>NVR</option>
-                      </select>
-                    </div>
-                    <div class='form-group col-md-6'>
-                      <label>Seri Numarasını Giriniz </label>
-                       <input type='text' class='form-control' id='serino' placeholder=''>
-                    </div>
-                    <div class='form-group col-md-6'>
-                      <label>Versiyon Bilgisini Giriniz </label>
-                       <input type='text' class='form-control' id='versiyon' placeholder=''>
-                    </div>
-                     <div class='form-group col-md-6'>
-                      <label>PTS sunucu ip adresini Giriniz </label>
-                       <input type='text' class='form-control' id='pts' placeholder=''>
-                    </div>
-          
-                    <div class='form-group col-md-6'>
-                      <label>Servis ip adresi </label>
-                       <input type='text' class='form-control' id='servisip' placeholder=''>
-                    </div>
-                    <div class='form-group col-md-6'>
-                      <label>Cihaz ip adresi </label>
-                       <input type='text' class='form-control' id='ip' placeholder=''>
-                    </div>
-                    <div class='form-group col-md-6'>
-                      <label>Cihaz IPMI ip adresi</label>
-                       <input type='text' class='form-control' id='ipmi' placeholder=''>
-                    </div>
-                    <div class='form-group col-md-6'>
-                      <label>Hostname adını Giriniz </label>
-                       <input type='text' class='form-control' id='hostname' placeholder='Örnek nir1'>
-                    </div>
-                      
-                     <div class='form-group col-md-6'>
-                      <label>Management Address </label>
-                       <input type='text' class='form-control' id='management' placeholder=''>
-                    </div>      
-                    <div class='form-group col-md-6'>
-                      <label for=''>NTP adresi</label>
-                      <input type='text' class='form-control' id='ntp'>
-                    </div>
-                  
-                    
-                  </div>
-                </form>
-
-                  </div>
-                  <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal" >iptal</button>
-                    <button class="btn btn-success" data-dismiss="modal" onclick="update('nirdetay')">Güncelle</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- end NIR-CIR güncelle modal-->
-
-
-         <!-- SW-NVR güncelle modal-->
-        <div class="modal fade" id="swnvrdetay" tabindex="-1" role="dialog" aria-labelledby="nirModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="nirModalLabel">NIR-CIR Bilgilerini Güncelle</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form id="asdadc"> 
-  <div class="form-row"> 
-    <div class="form-group col-md-6"> 
-      <label >İl</label> 
-      <select id="il" class="form-control" onchange="ilcedoldur(this.value,document.getElementsByClassName('swnvrilce')[0])"> 
-        <option disabled selected value>Bir il Seçiniz</option>
-         </select>
-
-          </div> 
-          <div class="form-group col-md-6"> 
-            <label>İlçe</label> 
-            <select id="ilce" class="form-control swnvrilce">
-             <option disabled selected value>Bir ilçe Seçiniz</option> 
-           </select> </div> 
-           <div class="form-group col-md-6">
-            <label>switch Tipini Seçiniz</label> 
-            <select id="swtip" class="form-control">
-             <option disabled selected value>switch Tipini Seçiniz</option>
-              <option value="A">A Tipi</option>
-               <option value="B">B Tipi</option>
-               <option value="C">C Tipi</option>
-               <option value="Yoktur">Yoktur</option> 
-                </select> </div> 
-               <div class="form-group col-md-6"> 
+              <div class="form-group col-md-6">
+                <label>İlçe</label>
+                <select id="ilce" class="form-control swnvrilce">
+                  <option disabled selected value>Bir ilçe Seçiniz</option>
+                </select> </div>
+              <div class="form-group col-md-6">
+                <label>switch Tipini Seçiniz</label>
+                <select id="swtip" class="form-control">
+                  <option disabled selected value>switch Tipini Seçiniz</option>
+                  <option value="A">A Tipi</option>
+                  <option value="B">B Tipi</option>
+                  <option value="C">C Tipi</option>
+                  <option value="Yoktur">Yoktur</option>
+                </select> </div>
+              <div class="form-group col-md-6">
                 <label>switch Marka Seçiniz</label>
-                 <select id="swmarka" class="form-control"> 
-                  <option disabled selected value>switch Marka Seçiniz</option> 
-                  <option value="Cisco">Cisco</option> 
-                  <option value="Extreme">Extreme</option> 
-                  <option value="Juniper">Juniper</option> 
-                  <option value="Aselsan">Aselsan</option> 
-                   <option value="Yoktur">Yoktur</option> 
-                </select> </div> <div class="form-group col-md-6"> 
-                  <label>switch Model Seçiniz</label> <select id="swmodel" class="form-control"> 
-                    <option disabled selected value>switch Model Seçiniz</option>
-                     <option value="4500x">4500x</option>
-                     <option value="4500x">6807</option>
-                      <option value="x460">x460</option> 
-                      <option value="Ex4200">Ex4200</option>
-                       <option value="Ex4300">Ex4300</option> 
-                       <option value="Aselsan">Aselsan</option> 
-                       <option value="Yoktur">Yoktur</option> 
-                     </select> </div> <div class="form-group col-md-6">
-                      <label>Adet</label> <input type="number" class="form-control" id="swadet" placeholder="Switch adetini giriniz" value="0"> 
-                    </div>
-                     <div class="form-group col-md-6"> 
-                      <label>NVR Boyutunu Seçiniz</label>
-                       <select id="nvrboyut" class="form-control"> 
-                        <option disabled selected value>NVR Boyutunu Seçiniz</option> 
-                        <option value="96TB">96TB</option> 
-                        <option value="64TB">64TB</option> 
-                        <option value="Yoktur">Yoktur</option>
-                      </select> 
-                    </div> 
-                    <div class="form-group col-md-6"> 
-                      <label>NVR Adet</label>
-                       <input type="number" class="form-control" id="nvradet" placeholder="NVR adetini giriniz" value="0"> 
-                     </div> 
-                        <div class="form-group col-md-6"> 
-                      <label>Açıklama</label>
-                       <input type="text" class="form-control" id="aciklama" placeholder="Varsa açıklama giriniz" value=" "> 
-                     </div> 
-                   </div> 
-                  
-                   </div> 
-                    </form> 
-                  <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal" >iptal</button>
-                    <button class="btn btn-success" data-dismiss="modal" onclick="update('swnvrdetay')">Güncelle</button>
-                  </div>
-                </div>
+                <select id="swmarka" class="form-control">
+                  <option disabled selected value>switch Marka Seçiniz</option>
+                  <option value="Cisco">Cisco</option>
+                  <option value="Extreme">Extreme</option>
+                  <option value="Juniper">Juniper</option>
+                  <option value="Aselsan">Aselsan</option>
+                  <option value="Yoktur">Yoktur</option>
+                </select> </div>
+              <div class="form-group col-md-6">
+                <label>switch Model Seçiniz</label> <select id="swmodel" class="form-control">
+                  <option disabled selected value>switch Model Seçiniz</option>
+                  <option value="4500x">4500x</option>
+                  <option value="4500x">6807</option>
+                  <option value="x460">x460</option>
+                  <option value="Ex4200">Ex4200</option>
+                  <option value="Ex4300">Ex4300</option>
+                  <option value="Aselsan">Aselsan</option>
+                  <option value="Yoktur">Yoktur</option>
+                </select> </div>
+              <div class="form-group col-md-6">
+                <label>Adet</label> <input type="number" class="form-control" id="swadet"
+                  placeholder="Switch adetini giriniz" value="0">
+              </div>
+              <div class="form-group col-md-6">
+                <label>NVR Boyutunu Seçiniz</label>
+                <select id="nvrboyut" class="form-control">
+                  <option disabled selected value>NVR Boyutunu Seçiniz</option>
+                  <option value="96TB">96TB</option>
+                  <option value="64TB">64TB</option>
+                  <option value="Yoktur">Yoktur</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label>NVR Adet</label>
+                <input type="number" class="form-control" id="nvradet" placeholder="NVR adetini giriniz" value="0">
+              </div>
+              <div class="form-group col-md-6">
+                <label>Açıklama</label>
+                <input type="text" class="form-control" id="aciklama" placeholder="Varsa açıklama giriniz" value=" ">
               </div>
             </div>
-            <!-- end NIR-CIR güncelle modal-->
+
+        </div>
+        </form>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">iptal</button>
+          <button class="btn btn-success" data-dismiss="modal" onclick="update('swnvrdetay')">Güncelle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end NIR-CIR güncelle modal-->
 
 
-            <!-- Bootstrap core JavaScript-->
-            <script src="vendor/jquery/jquery.min.js"></script>
-            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Tüm Sistem Bilgileri modal-->
+  <div class="modal fade" id="detaycihazadet" tabindex="-1" role="dialog" aria-labelledby="nirModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="nirModalLabel">NIR-CIR Bilgilerini Güncelle</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="asdadc">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>İl</label>
+                <select id="il" class="form-control"
+                  onchange="ilcedoldur(this.value,document.getElementsByClassName('swnvrilce')[0])" required>
+                  <option disabled selected value>Bir il Seçiniz</option>
+                </select>
 
-            <!-- Core plugin JavaScript-->
-            <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+              </div>
+              <div class="form-group col-md-6">
+                <label>İlçe</label>
+                <select id="ilce" class="form-control swnvrilce" required>
+                  <option disabled selected value>Bir ilçe Seçiniz</option>
+                </select> </div>
+               
+                <div class="form-group col-md-12">
+                  <label>Sözleşme Seçiniz</label>
+                  <select id="sozlesme" class="form-control" required>
+                    <option disabled selected value>Sözleşme seçiniz</option>
+                    <option value="Ana Sözleşme">Ana Sözleşme</option>
+                    <option value="Ek Talep-1">Ek Talep-1 </option>
+                    <option value="Ek Talep-2">Ek Talep-2</option>
+                  </select> </div>
+                <div class="form-group col-md-6">
+                  <label>Sabit Kamera Adedi</label> <input type="number" class="form-control" id="sabitadet"
+                    placeholder="Sabit Kamera adetini giriniz"  required>
+                </div>
+                
+                <div class="form-group col-md-6">
+                  <label>Hareketli Kamera Adedi</label> <input type="number" class="form-control" id="hareketliadet"
+                    placeholder="Hareketli Kamera adetini giriniz"  required>
+                </div>
+                
+                <div class="form-group col-md-6">
+                  <label>Lazer PTZ Kamera Adedi</label> <input type="number" class="form-control" id="lazerptzadet"
+                    placeholder="Lazer PTZ Kamera adetini giriniz"  required>
+                </div>
+                
+                <div class="form-group col-md-6">
+                  <label> Termal Kamera Adedi</label> <input type="number" class="form-control" id="termaladet"
+                    placeholder="Termal Kamera adetini giriniz"  required>
+                </div>
+                
+                <div class="form-group col-md-6">
+                  <label>Balistik Kamera Adedi</label> <input type="number" class="form-control" id="balistikadet"
+                    placeholder="Balistik Kamera adetini giriniz" " required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label> Geko Kamera Adedi</label> <input type="number" class="form-control" id="gekoadet"
+                    placeholder="Geko Kamera adetini giriniz"  required>
+                </div>
+               
+                <div class="form-group col-md-6">
+                  <label>C tipi Switch Adedi</label> <input type="number" class="form-control" id="ctipiadet"
+                    placeholder="C tipi switch adetini giriniz"  required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label> Nvr Adedi</label> <input type="number" class="form-control" id="nvradet"
+                    placeholder="NVR adetini giriniz"  required>
+                </div>
+        </div>
+        </form>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">iptal</button>
+          <button class="btn btn-success" data-dismiss="modal" onclick="update('detaycihazadet')">Güncelle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end Tüm sitem bilgileri modal-->
 
-            <!-- Custom scripts for all pages-->
-            <script src="js/sb-admin-2.min.js"></script>
-            <script lang="javascript" src="js/xlsx.full.min.js"></script>
-            <script lang="javascript" src="js/filesave.js"></script>
-           
-            <script src="vendor/sweetalert/sweetalert.min.js"></script>
-            <script src="vendor/sweetalert/jquery.sweet-alert.custom.js"></script> 
-            <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js"></script>
-            <script type="text/javascript" src="js/ililce.js"></script>
-            <script src="js/app.js"></script>
 
-           <script src="js/pagination.js"></script>
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-      </body></html>
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+  <script lang="javascript" src="js/xlsx.full.min.js"></script>
+  <script lang="javascript" src="js/filesave.js"></script>
+
+  <script src="vendor/sweetalert/sweetalert.min.js"></script>
+  <script src="vendor/sweetalert/jquery.sweet-alert.custom.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js"></script>
+  <script type="text/javascript" src="js/ililce.js"></script>
+  <script src="js/app.js"></script>
+
+  <script src="js/pagination.js"></script>
+
+
+
+</body>
+
+</html>

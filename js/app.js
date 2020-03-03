@@ -288,10 +288,35 @@ function ildoldur(key){
            
          });
       }
-
+      function validation(form) {
+        var boslukvarmi = false;
+        for (let i = 0; i < form.length; i++) {
+      
+          if (form[i].required === true && form[i].value ===null) {
+            boslukvarmi = true;
+            form[i].classList.add("is-invalid");
+            console.log(form[i])
+          }
+          else {
+            form[i].classList.remove("is-invalid");
+          }
+        }
+      
+        return boslukvarmi;
+      }
 
       function kaydet(name){
-       
+        let form =document.getElementById(name).getElementsByTagName("form")[0];
+        if (validation(form)) {
+          swal({
+            title: "Hata!!!",
+            text: "Tüm alanları doldurunuz",
+            type: "error",
+            confirmButtonText: "Tamamla",
+          });
+
+        }
+       else{
         var elementid=document.getElementById("icerik").getElementsByClassName("form-control");
        let all=true;
        let columndata={};
@@ -338,6 +363,7 @@ function ildoldur(key){
       }
 
     }
+  }
 
     var tablolar=
     {
