@@ -64,8 +64,8 @@
             <a class="collapse-item" onclick="ekle('kablosuzdetay',false,'Kablosuz Malzeme Ekle')">Kablosuz Cihaz
               Ekle</a>
             <a class="collapse-item" onclick="ekle('nirdetay',false,'NIR-CIR Ekle')">NIR-CIR Ekle</a>
-            <a class="collapse-item" onclick="ekle('swnvrdetay',false,'SW-NVR Ekle')">Switch-NVR Ekle</a>
-            <a class="collapse-item" onclick="ekle('detaycihazadet',false,'Detay Cihaz Adetleri')">Detay Cihaz Adetleri</a>
+            <a class="collapse-item" onclick="ekle('detaycihazadet',false,'İl ilçe mukayese Bilgileri')">İl ilçe mukayese Bilgileri</a>
+            <a class="collapse-item" onclick="ekle('mukayesebilgileri',false,'İl mukayese Bilgileri')">İl mukayese Bilgileri</a>
           </div>
         </div>
       </li>
@@ -84,12 +84,13 @@
             <a class="collapse-item" onclick="ekle('kablosuzdetay',true,'Kablosuz Detay Tablo')">Kablosuz Detay
               Tablosu</a>
             <a class="collapse-item" onclick="ekle('nirdetay',true,'NIR-CIR Detay Tablo')">NIR-CIR Detay Tablosu</a>
-            <a class="collapse-item" onclick="ekle('swnvrdetay',true,'SW-NVR Detay Tablo')">Switch-NVR Detay Tablosu</a>
-            <a class="collapse-item" onclick="ekle('detaycihazadet',true,'Detay Cihaz Adetleri Detay Tablo')">Detay Cihaz Adetleri</a>
+            <a class="collapse-item" onclick="ekle('detaycihazadet',true,'İl ilçe mukayese Bilgileri Tablo')">İl ilçe mukayese Bilgileri</a>
+            <a class="collapse-item" onclick="ekle('mukayesebilgileri',true,'İl mukayese Bilgileri Tablo')">İl mukayese Bilgileri</a>
+
           </div>
         </div>
       </li>
-
+      
       <hr class="sidebar-divider d-none d-md-block">
 
       <!-- Sidebar Toggler (Sidebar) -->
@@ -403,13 +404,37 @@
                 <select id="ilce" class="form-control kablosuzilce">
                   <option disabled selected value>Bir ilçe Seçiniz</option>
                 </select> </div>
+                <div class="form-group col-md-12">
+                  <label>Sözleşme Seçiniz</label>
+                  <select id="sozlesme" class="form-control" required>
+                    <option disabled selected value>Sözleşme seçiniz</option>
+                    <option value="Ana Sözleşme">Ana Sözleşme</option>
+                    <option value="Ek Talep-1">Ek Talep-1 </option>
+                    <option value="Ek Talep-2">Ek Talep-2</option>
+                  </select> </div>
               <div class="form-group col-md-6">
                 <label for="marka">Kablosuz Marka</label>
-                <input type="text" class="form-control" id="marka" placeholder="Kablosuz Marka giriniz">
+                <select id="tip" class="form-control">
+                  <option disabled selected value>Marka seçiniz</option>
+                  <option value="SAF">SAF</option>
+                  <option value="Radwin">Radwin</option>
+                  <option value="Redline">Redline</option>
+                </select>
               </div>
               <div class="form-group col-md-6">
                 <label for="model">Kablosuz Modeli</label>
-                <input type="text" class="form-control" id="model" placeholder="Kablosuz Model giriniz">
+                <select id="tip" class="form-control">
+                  <option disabled selected value>Marka seçiniz</option>
+                  <option value="İntegra">İntegra </option>
+                  <option value="Lumina">Lumina</option>
+                  <option value="5000HBS">5000HBS</option>
+                  <option value="5000HSU">5000HSU</option>
+                  <option value="RadwinGSU">RadwinGSU</option>
+                  <option value="2000/C">5000HBS</option>
+                  <option value="2000/AP">5000HBS</option>
+                  <option value="RDL-3000Ellipse">RDL-3000Ellipse</option>
+                  <option value="RDL-3000Enterprise">RDL-3000Ellipse</option>
+               </select>
               </div>
               <div class="form-group col-md-6"> <label for="tip">Tip</label>
                 <select id="tip" class="form-control">
@@ -533,96 +558,7 @@
   <!-- end NIR-CIR güncelle modal-->
 
 
-  <!-- SW-NVR güncelle modal-->
-  <div class="modal fade" id="swnvrdetay" tabindex="-1" role="dialog" aria-labelledby="nirModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="nirModalLabel">NIR-CIR Bilgilerini Güncelle</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form id="asdadc">
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label>İl</label>
-                <select id="il" class="form-control"
-                  onchange="ilcedoldur(this.value,document.getElementsByClassName('swnvrilce')[0])">
-                  <option disabled selected value>Bir il Seçiniz</option>
-                </select>
-
-              </div>
-              <div class="form-group col-md-6">
-                <label>İlçe</label>
-                <select id="ilce" class="form-control swnvrilce">
-                  <option disabled selected value>Bir ilçe Seçiniz</option>
-                </select> </div>
-              <div class="form-group col-md-6">
-                <label>switch Tipini Seçiniz</label>
-                <select id="swtip" class="form-control">
-                  <option disabled selected value>switch Tipini Seçiniz</option>
-                  <option value="A">A Tipi</option>
-                  <option value="B">B Tipi</option>
-                  <option value="C">C Tipi</option>
-                  <option value="Yoktur">Yoktur</option>
-                </select> </div>
-              <div class="form-group col-md-6">
-                <label>switch Marka Seçiniz</label>
-                <select id="swmarka" class="form-control">
-                  <option disabled selected value>switch Marka Seçiniz</option>
-                  <option value="Cisco">Cisco</option>
-                  <option value="Extreme">Extreme</option>
-                  <option value="Juniper">Juniper</option>
-                  <option value="Aselsan">Aselsan</option>
-                  <option value="Yoktur">Yoktur</option>
-                </select> </div>
-              <div class="form-group col-md-6">
-                <label>switch Model Seçiniz</label> <select id="swmodel" class="form-control">
-                  <option disabled selected value>switch Model Seçiniz</option>
-                  <option value="4500x">4500x</option>
-                  <option value="4500x">6807</option>
-                  <option value="x460">x460</option>
-                  <option value="Ex4200">Ex4200</option>
-                  <option value="Ex4300">Ex4300</option>
-                  <option value="Aselsan">Aselsan</option>
-                  <option value="Yoktur">Yoktur</option>
-                </select> </div>
-              <div class="form-group col-md-6">
-                <label>Adet</label> <input type="number" class="form-control" id="swadet"
-                  placeholder="Switch adetini giriniz" value="0">
-              </div>
-              <div class="form-group col-md-6">
-                <label>NVR Boyutunu Seçiniz</label>
-                <select id="nvrboyut" class="form-control">
-                  <option disabled selected value>NVR Boyutunu Seçiniz</option>
-                  <option value="96TB">96TB</option>
-                  <option value="64TB">64TB</option>
-                  <option value="Yoktur">Yoktur</option>
-                </select>
-              </div>
-              <div class="form-group col-md-6">
-                <label>NVR Adet</label>
-                <input type="number" class="form-control" id="nvradet" placeholder="NVR adetini giriniz" value="0">
-              </div>
-              <div class="form-group col-md-6">
-                <label>Açıklama</label>
-                <input type="text" class="form-control" id="aciklama" placeholder="Varsa açıklama giriniz" value=" ">
-              </div>
-            </div>
-
-        </div>
-        </form>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">iptal</button>
-          <button class="btn btn-success" data-dismiss="modal" onclick="update('swnvrdetay')">Güncelle</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- end NIR-CIR güncelle modal-->
+  
 
 
   <!-- Tüm Sistem Bilgileri modal-->
@@ -660,43 +596,91 @@
                     <option value="Ek Talep-1">Ek Talep-1 </option>
                     <option value="Ek Talep-2">Ek Talep-2</option>
                   </select> </div>
-                <div class="form-group col-md-6">
-                  <label>Sabit Kamera Adedi</label> <input type="number" class="form-control" id="sabitadet"
-                    placeholder="Sabit Kamera adetini giriniz"  required>
-                </div>
-                
-                <div class="form-group col-md-6">
-                  <label>Hareketli Kamera Adedi</label> <input type="number" class="form-control" id="hareketliadet"
-                    placeholder="Hareketli Kamera adetini giriniz"  required>
-                </div>
-                
-                <div class="form-group col-md-6">
-                  <label>Lazer PTZ Kamera Adedi</label> <input type="number" class="form-control" id="lazerptzadet"
-                    placeholder="Lazer PTZ Kamera adetini giriniz"  required>
-                </div>
-                
-                <div class="form-group col-md-6">
-                  <label> Termal Kamera Adedi</label> <input type="number" class="form-control" id="termaladet"
-                    placeholder="Termal Kamera adetini giriniz"  required>
-                </div>
-                
-                <div class="form-group col-md-6">
-                  <label>Balistik Kamera Adedi</label> <input type="number" class="form-control" id="balistikadet"
-                    placeholder="Balistik Kamera adetini giriniz" " required>
-                </div>
-                <div class="form-group col-md-6">
-                  <label> Geko Kamera Adedi</label> <input type="number" class="form-control" id="gekoadet"
-                    placeholder="Geko Kamera adetini giriniz"  required>
-                </div>
-               
-                <div class="form-group col-md-6">
-                  <label>C tipi Switch Adedi</label> <input type="number" class="form-control" id="ctipiadet"
-                    placeholder="C tipi switch adetini giriniz"  required>
-                </div>
-                <div class="form-group col-md-6">
-                  <label> Nvr Adedi</label> <input type="number" class="form-control" id="nvradet"
-                    placeholder="NVR adetini giriniz"  required>
-                </div>
+                  <div class="form-group col-md-6">
+                    <label>Sabit Kamera Adedi</label> <input type="number" class="form-control" id="sabitadet"
+                      placeholder="Sabit Kamera adetini giriniz"  required>
+                  </div>
+                  
+                  <div class="form-group col-md-6">
+                    <label>Hareketli Kamera Adedi</label> <input type="number" class="form-control" id="hareketliadet"
+                      placeholder="Hareketli Kamera adetini giriniz"  required>
+                  </div>
+                  
+                  <div class="form-group col-md-6">
+                    <label>Lazer PTZ Kamera Adedi</label> <input type="number" class="form-control" id="lazerptzadet"
+                      placeholder="Lazer PTZ Kamera adetini giriniz"  required>
+                  </div>
+                  
+                  <div class="form-group col-md-6">
+                    <label> Termal Kamera Adedi</label> <input type="number" class="form-control" id="termaladet"
+                      placeholder="Termal Kamera adetini giriniz"  required>
+                  </div>
+                  
+                  <div class="form-group col-md-6">
+                    <label>Balistik Kamera Adedi</label> <input type="number" class="form-control" id="balistikadet"
+                      placeholder="Balistik Kamera adetini giriniz" " required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label> Geko Kamera Adedi</label> <input type="number" class="form-control" id="gekoadet"
+                      placeholder="Geko Kamera adetini giriniz"  required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label> Işık Sensörü adeti </label> <input type="number" class="form-control" id="isiksensoruadet"
+                      placeholder="Işık Sensörü  adetini giriniz"  required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label> IR-LED adeti </label> <input type="number" class="form-control" id="irledadet"
+                      placeholder="IR-LED adetini giriniz"  required>
+                  </div>
+                 
+                  <div class="form-group col-md-6">
+                    <label>C tipi Switch Adedi</label> <input type="number" class="form-control" id="ctipiadet"
+                      placeholder="C tipi switch adetini giriniz"  required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label>Trafik Şekillendirici Adedi</label> <input type="number" class="form-control" id="ctipiadet"
+                      placeholder="Trafik Şekillendirici adetini giriniz"  required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label>D tipi Switch Adedi</label> <input type="number" class="form-control" id="dtipiadet"
+                      placeholder="D tipi switch adetini giriniz"  required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label> 96TB Nvr Adedi</label> <input type="number" class="form-control" id="96tbnvradet"
+                      placeholder="96TB NVR adetini giriniz"  required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label> 64TB Nvr Adedi</label> <input type="number" class="form-control" id="64tbnvradet"
+                      placeholder="96TB NVR adetini giriniz"  required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label> A tipi Cisco 4500x-16  port adeti</label> <input type="number" class="form-control" id="cisco-4500x-16adet"
+                      placeholder="A tipi Cisco 4500x-16 adetini giriniz"  required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label> A tipi Cisco 4500x-32 port adeti</label> <input type="number" class="form-control" id="cisco-4500x-32adet"
+                      placeholder="A tipi Cisco 4500x-32 adetini giriniz"  required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label> A tipi Cisco 6807 adeti</label> <input type="number" class="form-control" id="cisco-6807adet"
+                      placeholder="A tipi Cisco 6807 adetini giriniz"  required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label> A tipi Juniper ex4300 adeti</label> <input type="number" class="form-control" id="Juniper-ex4300adet"
+                      placeholder="A tipi Juniper ex4300 adetini giriniz"  required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label> B tipi Extreme X460 adeti</label> <input type="number" class="form-control" id="Extreme-x460adet"
+                      placeholder="B tipi Extreme X460 adetini giriniz"  required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label> B tipi Juniper Ex4200 adeti</label> <input type="number" class="form-control" id="Juniper-ex4200adet"
+                      placeholder="B tipi Juniper Ex4200 adetini giriniz"  required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label> Kontrol Klavyesi adeti</label> <input type="number" class="form-control" id="kontrolklavyesiadet"
+                      placeholder="Kontrol Klavyesi adetini giriniz"  required>
+                  </div>
         </div>
         </form>
         <div class="modal-footer">
@@ -706,9 +690,135 @@
       </div>
     </div>
   </div>
+</div>
   <!-- end Tüm sitem bilgileri modal-->
 
+ <!-- Mukayese Bilgileri modal-->
+ <div class="modal fade" id="mukayesebilgileri" tabindex="-1" role="dialog" aria-labelledby="nirModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="nirModalLabel">Mukayese Bilgilerini Güncelle</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="asdadc">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>İl</label>
+              <select id="il" class="form-control" required>
+                <option disabled selected value>Bir il Seçiniz</option>
+              </select>
 
+            </div>
+            
+             
+              <div class="form-group col-md-12">
+                <label>Sözleşme Seçiniz</label>
+                <select id="sozlesme" class="form-control" required>
+                  <option disabled selected value>Sözleşme seçiniz</option>
+                  <option value="Ana Sözleşme">Ana Sözleşme</option>
+                  <option value="Ek Talep-1">Ek Talep-1 </option>
+                  <option value="Ek Talep-2">Ek Talep-2</option>
+                </select> </div>
+              <div class="form-group col-md-6">
+                <label>Sabit Kamera Adedi</label> <input type="number" class="form-control" id="sabitadet"
+                  placeholder="Sabit Kamera adetini giriniz"  required>
+              </div>
+              
+              <div class="form-group col-md-6">
+                <label>Hareketli Kamera Adedi</label> <input type="number" class="form-control" id="hareketliadet"
+                  placeholder="Hareketli Kamera adetini giriniz"  required>
+              </div>
+              
+              <div class="form-group col-md-6">
+                <label>Lazer PTZ Kamera Adedi</label> <input type="number" class="form-control" id="lazerptzadet"
+                  placeholder="Lazer PTZ Kamera adetini giriniz"  required>
+              </div>
+              
+              <div class="form-group col-md-6">
+                <label> Termal Kamera Adedi</label> <input type="number" class="form-control" id="termaladet"
+                  placeholder="Termal Kamera adetini giriniz"  required>
+              </div>
+              
+              <div class="form-group col-md-6">
+                <label>Balistik Kamera Adedi</label> <input type="number" class="form-control" id="balistikadet"
+                  placeholder="Balistik Kamera adetini giriniz" " required>
+              </div>
+              <div class="form-group col-md-6">
+                <label> Geko Kamera Adedi</label> <input type="number" class="form-control" id="gekoadet"
+                  placeholder="Geko Kamera adetini giriniz"  required>
+              </div>
+              <div class="form-group col-md-6">
+                <label> Işık Sensörü adeti </label> <input type="number" class="form-control" id="isiksensoruadet"
+                  placeholder="Işık Sensörü  adetini giriniz"  required>
+              </div>
+              <div class="form-group col-md-6">
+                <label> IR-LED adeti </label> <input type="number" class="form-control" id="irledadet"
+                  placeholder="IR-LED adetini giriniz"  required>
+              </div>
+             
+              <div class="form-group col-md-6">
+                <label>C tipi Switch Adedi</label> <input type="number" class="form-control" id="ctipiadet"
+                  placeholder="C tipi switch adetini giriniz"  required>
+              </div>
+              <div class="form-group col-md-6">
+                <label>Trafik Şekillendirici Adedi</label> <input type="number" class="form-control" id="ctipiadet"
+                  placeholder="Trafik Şekillendirici adetini giriniz"  required>
+              </div>
+              <div class="form-group col-md-6">
+                <label>D tipi Switch Adedi</label> <input type="number" class="form-control" id="dtipiadet"
+                  placeholder="D tipi switch adetini giriniz"  required>
+              </div>
+              <div class="form-group col-md-6">
+                <label> 96TB Nvr Adedi</label> <input type="number" class="form-control" id="96tbnvradet"
+                  placeholder="96TB NVR adetini giriniz"  required>
+              </div>
+              <div class="form-group col-md-6">
+                <label> 64TB Nvr Adedi</label> <input type="number" class="form-control" id="64tbnvradet"
+                  placeholder="96TB NVR adetini giriniz"  required>
+              </div>
+              <div class="form-group col-md-6">
+                <label> A tipi Cisco 4500x-16  port adeti</label> <input type="number" class="form-control" id="cisco-4500x-16adet"
+                  placeholder="A tipi Cisco 4500x-16 adetini giriniz"  required>
+              </div>
+              <div class="form-group col-md-6">
+                <label> A tipi Cisco 4500x-32 port adeti</label> <input type="number" class="form-control" id="cisco-4500x-32adet"
+                  placeholder="A tipi Cisco 4500x-32 adetini giriniz"  required>
+              </div>
+              <div class="form-group col-md-6">
+                <label> A tipi Cisco 6807 adeti</label> <input type="number" class="form-control" id="cisco-6807adet"
+                  placeholder="A tipi Cisco 6807 adetini giriniz"  required>
+              </div>
+              <div class="form-group col-md-6">
+                <label> A tipi Juniper ex4300 adeti</label> <input type="number" class="form-control" id="Juniper-ex4300adet"
+                  placeholder="A tipi Juniper ex4300 adetini giriniz"  required>
+              </div>
+              <div class="form-group col-md-6">
+                <label> B tipi Extreme X460 adeti</label> <input type="number" class="form-control" id="Extreme-x460adet"
+                  placeholder="B tipi Extreme X460 adetini giriniz"  required>
+              </div>
+              <div class="form-group col-md-6">
+                <label> B tipi Juniper Ex4200 adeti</label> <input type="number" class="form-control" id="Juniper-ex4200adet"
+                  placeholder="B tipi Juniper Ex4200 adetini giriniz"  required>
+              </div>
+              <div class="form-group col-md-6">
+                <label> Kontrol Klavyesi adeti</label> <input type="number" class="form-control" id="kontrolklavyesiadet"
+                  placeholder="Kontrol Klavyesi adetini giriniz"  required>
+              </div>
+      </div>
+      </form>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">iptal</button>
+        <button class="btn btn-success" data-dismiss="modal" onclick="update('mukayesebilgileri')">Güncelle</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- end Mukayese Bilgileri modal-->
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
