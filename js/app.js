@@ -166,6 +166,7 @@ function updatedoldur(id,data,key){
 var elementid=document.getElementById(id).getElementsByClassName("form-control");
   data=data.split(",");
   ildoldur(elementid[0]);
+  if(elementid[1].id!="sozlesme")
   ilcedoldur(data[0],elementid[1]);
   for (var i = 0; i < elementid.length; i++) {
     elementid[i].value=data[i];
